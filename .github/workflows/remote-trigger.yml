@@ -1,0 +1,347 @@
+name: Remote Regression Tests
+run-name: |
+  Remote: ${{ github.event.client_payload.test_type || 'regression' }} (${{ github.event.client_payload.browser || 'chromium' }})
+
+on:
+  # Триггер из другого репозитория (например, при коммите в frontend)
+  repository_dispatch:
+    types: [run-regression-tests]
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - name: Determine devices to test
+        id: set-matrix
+        run: |
+          # Получаем devices из payload (может быть строка "desktop,mobile" или JSON массив)
+          DEVICES_INPUT="${{ github.event.client_payload.devices || 'desktop' }}"
+
+          # Проверяем, является ли это JSON массивом
+          if echo "$DEVICES_INPUT" | jq -e . >/dev/null 2>&1; then
+            # Это валидный JSON, используем как есть
+            devices="$DEVICES_INPUT"
+          else
+            # Это строка, конвертируем в JSON массив
+            # Разделяем по запятой и создаем JSON массив
+            devices="["
+            first=true
+            IFS=',' read -ra DEVICE_ARRAY <<< "$DEVICES_INPUT"
+            for device in "${DEVICE_ARRAY[@]}"; do
+              device=$(echo "$device" | xargs) # trim whitespace
+              if [ "$first" == "true" ]; then
+                devices="$devices\"$device\""
+                first=false
+              else
+                devices="$devices,\"$device\""
+              fi
+            done
+            devices="$devices]"
+          fi
+
+          # Создаем matrix
+          matrix="{\"python-version\":[\"3.12\"],\"device\":$devices}"
+
+          echo "matrix=$matrix" >> $GITHUB_OUTPUT
+          echo "Devices matrix: $matrix"
+
+  regression:
+    needs: prepare
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix: ${{ fromJson(needs.prepare.outputs.matrix) }}
+      fail-fast: false
+
+    env:
+      HEADLESS: true
+      CI: true
+
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+
+    - name: 🔎 Resolve run parameters
+      id: resolve_params
+      run: |
+        TEST_TYPE="${{ github.event.client_payload.test_type || 'regression' }}"
+        BROWSER="${{ github.event.client_payload.browser || 'chromium' }}"
+        DEVICE="${{ matrix.device }}"
+        PR_NUMBER="${{ github.event.client_payload.pr_number || '' }}"
+        PR_URL="${{ github.event.client_payload.pr_url || '' }}"
+        SOURCE_REPO="${{ github.event.client_payload.source_repo || 'unknown' }}"
+        SOURCE_BRANCH="${{ github.event.client_payload.source_branch || '' }}"
+        SOURCE_COMMIT="${{ github.event.client_payload.source_commit || '' }}"
+
+        echo "TEST_TYPE=$TEST_TYPE" >> "$GITHUB_ENV"
+        echo "BROWSER=$BROWSER" >> "$GITHUB_ENV"
+        echo "DEVICE=$DEVICE" >> "$GITHUB_ENV"
+        echo "PR_NUMBER=$PR_NUMBER" >> "$GITHUB_ENV"
+        echo "PR_URL=$PR_URL" >> "$GITHUB_ENV"
+        echo "SOURCE_REPO=$SOURCE_REPO" >> "$GITHUB_ENV"
+        echo "SOURCE_BRANCH=$SOURCE_BRANCH" >> "$GITHUB_ENV"
+        echo "SOURCE_COMMIT=$SOURCE_COMMIT" >> "$GITHUB_ENV"
+
+        echo "test_type=$TEST_TYPE" >> "$GITHUB_OUTPUT"
+        echo "browser=$BROWSER" >> "$GITHUB_OUTPUT"
+        echo "device=$DEVICE" >> "$GITHUB_OUTPUT"
+
+        mkdir -p reports
+        {
+          echo "test_type=$TEST_TYPE"
+          echo "browser=$BROWSER"
+          echo "device=$DEVICE"
+          echo "source_repo=$SOURCE_REPO"
+          echo "source_branch=$SOURCE_BRANCH"
+          echo "source_commit=$SOURCE_COMMIT"
+        } > reports/run-parameters.txt
+
+    - name: 🧾 Run parameters summary
+      run: |
+        {
+          echo "### 🚀 Remote Regression Test Run"
+          echo ""
+          echo "#### Test Configuration"
+          echo "- **Test type**: \`${TEST_TYPE}\`"
+          echo "- **Browser**: \`${BROWSER}\`"
+          echo "- **Device**: \`${DEVICE}\`"
+          echo ""
+          echo "#### Trigger Information"
+          echo "- **Source**: \`${SOURCE_REPO}\`"
+          if [ -n "$SOURCE_BRANCH" ]; then
+            echo "- **Branch**: \`${SOURCE_BRANCH}\`"
+          fi
+          if [ -n "$SOURCE_COMMIT" ]; then
+            echo "- **Commit**: \`${SOURCE_COMMIT:0:7}\`"
+          fi
+          if [ -n "$PR_NUMBER" ] && [ -n "$PR_URL" ]; then
+            echo "- **PR**: [#$PR_NUMBER]($PR_URL)"
+          fi
+        } >> "$GITHUB_STEP_SUMMARY"
+
+    - name: 🐍 Set up Python 3.12
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.12"
+        cache: 'pip'
+
+    - name: 🔧 Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: 🎭 Install Playwright Browsers
+      run: |
+        playwright install --with-deps "$BROWSER"
+
+    - name: 🧪 Run Tests
+      id: run_tests
+      continue-on-error: true
+      env:
+        TEST_TYPE: ${{ env.TEST_TYPE }}
+        BROWSER: ${{ env.BROWSER }}
+        DEVICE: ${{ env.DEVICE }}
+        PR_NUMBER: ${{ env.PR_NUMBER }}
+        PR_URL: ${{ env.PR_URL }}
+      run: |
+        if [ -n "$PR_NUMBER" ] && [ -n "$PR_URL" ]; then
+          echo "🚀 Triggered by PR #$PR_NUMBER: $PR_URL"
+        fi
+
+        echo "📱 Device: $DEVICE"
+        echo "🌐 Browser: $BROWSER"
+        echo "🧪 Test type: $TEST_TYPE"
+
+        mkdir -p reports
+        START_TS=$(date +%s)
+        echo "$START_TS" > reports/test-start-ts.txt
+
+        case "$TEST_TYPE" in
+          smoke)
+            echo "💨 Running smoke tests..."
+            pytest tests/ -v --browser $BROWSER --tb=short -m smoke --ctrf=reports/ctrf-report.json
+            ;;
+          regression)
+            echo "🔄 Running regression tests..."
+            pytest tests/ -v --browser $BROWSER --tb=short -m "smoke or regression" --ctrf=reports/ctrf-report.json
+            ;;
+          validation)
+            echo "✅ Running validation tests..."
+            pytest tests/ -v --browser $BROWSER --tb=short -m validation --ctrf=reports/ctrf-report.json
+            ;;
+          *)
+            echo "❌ Error: Invalid test type '$TEST_TYPE'"
+            echo "Supported test types: smoke, regression, validation"
+            exit 1
+            ;;
+        esac
+
+    - name: 🧾 Enrich CTRF with run parameters
+      if: always()
+      env:
+        TEST_TYPE: ${{ env.TEST_TYPE }}
+        BROWSER: ${{ env.BROWSER }}
+        DEVICE: ${{ env.DEVICE }}
+        SOURCE_REPO: ${{ env.SOURCE_REPO }}
+      run: |
+        if ! command -v jq >/dev/null 2>&1; then
+          sudo apt-get update
+          sudo apt-get install -y jq
+        fi
+        if [ -f reports/ctrf-report.json ]; then
+          jq --arg tt "$TEST_TYPE" --arg br "$BROWSER" --arg dv "$DEVICE" --arg sr "$SOURCE_REPO" \
+            '.results.runParameters = {test_type:$tt, browser:$br, device:$dv, source_repo:$sr}' \
+            reports/ctrf-report.json > reports/ctrf-report.tmp && mv reports/ctrf-report.tmp reports/ctrf-report.json
+        else
+          echo "No CTRF report found to enrich"
+        fi
+
+    - name: 📊 Upload Allure Results
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: allure-results-${{ matrix.python-version }}-${{ matrix.device }}
+        path: reports/allure-results/
+        retention-days: 30
+
+    - name: 📸 Upload Screenshots
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: screenshots-${{ steps.resolve_params.outputs.browser }}-${{ steps.resolve_params.outputs.device }}
+        path: |
+          reports/failed_screenshots/
+          snapshot_failures/
+        retention-days: 30
+
+    - name: 📝 Upload Test Reports
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: test-reports-${{ matrix.python-version }}-${{ matrix.device }}
+        path: |
+          reports/junit.xml
+          reports/pytest.log
+          reports/report.html
+          reports/ctrf-report.json
+          reports/run-parameters.txt
+        retention-days: 30
+
+    - name: 📊 Publish Test Results (CTRF)
+      uses: ctrf-io/github-test-reporter@v1
+      if: always()
+      with:
+        report-path: './reports/ctrf-report.json'
+        github-report: true
+        summary-report: true
+        failed-report: true
+        test-list-report: true
+        pull-request: false
+        update-comment: false
+        comment-tag: 'remote-regression-${{ matrix.python-version }}-${{ matrix.device }}'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: 🎬 Upload Playwright Traces
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: playwright-traces-${{ matrix.python-version }}-${{ matrix.device }}
+        path: |
+          reports/trace/
+          trace.zip
+          trace-*.zip
+        retention-days: 7
+
+    - name: 📝 Extract Commit Info
+      if: always()
+      id: commit_info
+      env:
+        SOURCE_REPO: ${{ env.SOURCE_REPO }}
+        SOURCE_COMMIT: ${{ env.SOURCE_COMMIT }}
+        SOURCE_REPO_TOKEN: ${{ secrets.SOURCE_REPO_TOKEN }}
+      run: |
+        # Если есть данные о внешнем репозитории, получаем информацию оттуда
+        if [ -n "$SOURCE_REPO" ] && [ -n "$SOURCE_COMMIT" ] && [ "$SOURCE_REPO" != "unknown" ]; then
+          echo "Fetching commit info from source repository: $SOURCE_REPO"
+
+          # Получаем информацию о коммите из внешнего репозитория через GitHub API
+          if [ -n "$SOURCE_REPO_TOKEN" ]; then
+            if ! command -v jq >/dev/null 2>&1; then
+              sudo apt-get update && sudo apt-get install -y jq
+            fi
+
+            COMMIT_INFO=$(curl -s -H "Accept: application/vnd.github+json" \
+              -H "Authorization: Bearer $SOURCE_REPO_TOKEN" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              "https://api.github.com/repos/$SOURCE_REPO/commits/$SOURCE_COMMIT")
+
+            # Проверяем, что API вернул валидные данные (не ошибку)
+            if echo "$COMMIT_INFO" | jq -e '.commit.message' >/dev/null 2>&1; then
+              COMMIT_MESSAGE=$(echo "$COMMIT_INFO" | jq -r '.commit.message // ""' | head -1)
+              COMMIT_AUTHOR=$(echo "$COMMIT_INFO" | jq -r '.commit.author.name // .author.login // ""')
+            else
+              echo "Failed to fetch commit info from API, using local commit"
+              COMMIT_MESSAGE=$(git log -1 --pretty=format:%s)
+              COMMIT_AUTHOR=$(git log -1 --pretty=format:%an)
+            fi
+          else
+            # Fallback: используем локальный коммит
+            COMMIT_MESSAGE=$(git log -1 --pretty=format:%s)
+            COMMIT_AUTHOR=$(git log -1 --pretty=format:%an)
+          fi
+        else
+          # Используем локальный коммит
+          COMMIT_MESSAGE=$(git log -1 --pretty=format:%s)
+          COMMIT_AUTHOR=$(git log -1 --pretty=format:%an)
+        fi
+
+        echo "COMMIT_MESSAGE<<COMMIT_EOF" >> $GITHUB_ENV
+        echo "$COMMIT_MESSAGE" >> $GITHUB_ENV
+        echo "COMMIT_EOF" >> $GITHUB_ENV
+
+        echo "COMMIT_AUTHOR=$COMMIT_AUTHOR" >> $GITHUB_ENV
+
+    - name: 📱 Generate Telegram Report
+      if: always()
+      id: telegram_report
+      env:
+        TEST_TYPE: ${{ env.TEST_TYPE }}
+        BROWSER: ${{ env.BROWSER }}
+        DEVICE: ${{ env.DEVICE }}
+        GITHUB_EVENT_NAME: ${{ github.event_name }}
+        GITHUB_RUN_NUMBER: ${{ github.run_number }}
+        GITHUB_REF_NAME: ${{ github.ref_name }}
+        GITHUB_SHA: ${{ github.sha }}
+        GITHUB_SERVER_URL: ${{ github.server_url }}
+        GITHUB_REPOSITORY: ${{ github.repository }}
+        GITHUB_RUN_ID: ${{ github.run_id }}
+        COMMIT_MESSAGE: ${{ env.COMMIT_MESSAGE }}
+        COMMIT_AUTHOR: ${{ env.COMMIT_AUTHOR }}
+        SOURCE_REPO: ${{ env.SOURCE_REPO }}
+        SOURCE_BRANCH: ${{ env.SOURCE_BRANCH }}
+        SOURCE_COMMIT: ${{ env.SOURCE_COMMIT }}
+        PR_NUMBER: ${{ env.PR_NUMBER }}
+        PR_URL: ${{ env.PR_URL }}
+      run: |
+        if [ ! -f reports/ctrf-report.json ]; then
+          echo "No CTRF report found, skipping Telegram notification"
+          echo "skip_telegram=true" >> $GITHUB_OUTPUT
+          exit 0
+        fi
+
+        # Run Python script to generate enhanced report
+        python3 .github/generate_telegram_report.py
+
+    - name: 📬 Send Telegram Notification
+      if: always() && steps.telegram_report.outputs.message != ''
+      uses: appleboy/telegram-action@master
+      with:
+        to: ${{ secrets.TELEGRAM_CHAT_ID }}
+        token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        format: html
+        disable_web_page_preview: false
+        message: ${{ steps.telegram_report.outputs.message }}

@@ -1,0 +1,338 @@
+name: TunService Tests
+run-name: |
+  TunService: ${{ github.event_name == 'workflow_dispatch' && format('{0} ({1})', github.event.inputs.test_type || 'regression', github.event.inputs.browser || 'chromium') ||
+    github.event_name == 'repository_dispatch' && format('{0} ({1} - {2})', github.event.client_payload.test_type || 'regression', github.event.client_payload.browser || 'chromium', github.event.client_payload.device || 'desktop') ||
+    format('UI Tests', github.sha) }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      test_type:
+        description: 'Select test type to run'
+        required: false
+        type: choice
+        options:
+          - regression
+          - smoke
+          - validation
+        default: 'regression'
+      browser:
+        description: 'Select browser'
+        required: false
+        type: choice
+        options:
+          - chromium
+          - webkit
+          - firefox
+        default: 'chromium'
+      device_desktop:
+        description: 'Run tests on Desktop'
+        required: false
+        default: true
+        type: boolean
+      device_mobile:
+        description: 'Run tests on Mobile'
+        required: false
+        default: false
+        type: boolean
+      device_tablet:
+        description: 'Run tests on Tablet'
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - name: Determine selected devices
+        id: set-matrix
+        run: |
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            devices="["
+            first_device=true
+
+            if [ "${{ github.event.inputs.device_desktop }}" == "true" ]; then
+              if [ "$first_device" == "true" ]; then
+                devices="$devices\"desktop\""
+                first_device=false
+              else
+                devices="$devices,\"desktop\""
+              fi
+            fi
+
+            if [ "${{ github.event.inputs.device_mobile }}" == "true" ]; then
+              if [ "$first_device" == "true" ]; then
+                devices="$devices\"mobile\""
+                first_device=false
+              else
+                devices="$devices,\"mobile\""
+              fi
+            fi
+
+            if [ "${{ github.event.inputs.device_tablet }}" == "true" ]; then
+              if [ "$first_device" == "true" ]; then
+                devices="$devices\"tablet\""
+                first_device=false
+              else
+                devices="$devices,\"tablet\""
+              fi
+            fi
+
+            devices="$devices]"
+
+            # If no devices selected, default to desktop
+            if [ "$devices" == "[]" ]; then
+              devices='["desktop"]'
+            fi
+
+            # Create full matrix with python-version and device as matrix key
+            # This will create multiple jobs - one for each device
+            matrix="{\"python-version\":[\"3.12\"],\"device\":$devices}"
+          else
+            # For non-workflow_dispatch events, use default matrix
+            matrix='{"python-version":["3.12"],"device":["desktop"]}'
+          fi
+
+          echo "matrix=$matrix" >> $GITHUB_OUTPUT
+          echo "Matrix: $matrix"
+
+  build_and_test:
+    needs: prepare
+    if: always() && (github.event_name == 'workflow_dispatch' || github.event_name == 'repository_dispatch')
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix: ${{ fromJson(needs.prepare.outputs.matrix) }}
+      fail-fast: false
+
+    env:
+      HEADLESS: true
+      CI: true
+
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+
+    - name: 🔎 Resolve run parameters
+      id: resolve_params
+      run: |
+        TEST_TYPE="${{ github.event_name == 'workflow_dispatch' && (github.event.inputs.test_type || 'regression') || github.event.client_payload.test_type || 'regression' }}"
+        BROWSER="${{ github.event_name == 'workflow_dispatch' && (github.event.inputs.browser || 'chromium') || github.event.client_payload.browser || 'chromium' }}"
+        # For workflow_dispatch use matrix.device, for others use from client_payload or default to desktop
+        DEVICE="${{ github.event_name == 'workflow_dispatch' && matrix.device || github.event.client_payload.device || 'desktop' }}"
+        PR_NUMBER="${{ github.event.client_payload.pr_number || '' }}"
+        PR_URL="${{ github.event.client_payload.pr_url || '' }}"
+
+        echo "TEST_TYPE=$TEST_TYPE" >> "$GITHUB_ENV"
+        echo "BROWSER=$BROWSER" >> "$GITHUB_ENV"
+        echo "DEVICE=$DEVICE" >> "$GITHUB_ENV"
+        echo "PR_NUMBER=$PR_NUMBER" >> "$GITHUB_ENV"
+        echo "PR_URL=$PR_URL" >> "$GITHUB_ENV"
+
+        echo "test_type=$TEST_TYPE" >> "$GITHUB_OUTPUT"
+        echo "browser=$BROWSER" >> "$GITHUB_OUTPUT"
+        echo "device=$DEVICE" >> "$GITHUB_OUTPUT"
+
+        mkdir -p reports
+        {
+          echo "test_type=$TEST_TYPE"
+          echo "browser=$BROWSER"
+          echo "device=$DEVICE"
+        } > reports/run-parameters.txt
+
+    - name: 🧾 Run parameters summary
+      run: |
+        {
+          echo "### Run parameters"
+          echo ""
+          echo "- Test type: \`${TEST_TYPE}\`"
+          echo "- Browser: \`${BROWSER}\`"
+          echo "- Device: \`${DEVICE}\`"
+          if [ -n "$PR_NUMBER" ] && [ -n "$PR_URL" ]; then
+            echo "- PR: [#$PR_NUMBER]($PR_URL)"
+          fi
+        } >> "$GITHUB_STEP_SUMMARY"
+
+    - name: 🐍 Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ matrix.python-version }}
+        cache: 'pip'
+
+    - name: 🔧 Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: 🎭 Install Playwright Browsers
+      run: |
+        playwright install --with-deps "$BROWSER"
+
+    - name: 🧪 Run Tests
+      id: run_tests
+      continue-on-error: true
+      env:
+        TEST_TYPE: ${{ env.TEST_TYPE }}
+        BROWSER: ${{ env.BROWSER }}
+        DEVICE: ${{ env.DEVICE }}
+        PR_NUMBER: ${{ env.PR_NUMBER }}
+        PR_URL: ${{ env.PR_URL }}
+      run: |
+        if [ -n "$PR_NUMBER" ] && [ -n "$PR_URL" ]; then
+          echo "🚀 PR #$PR_NUMBER: $PR_URL"
+        fi
+
+        echo "📱 Device: $DEVICE"
+
+        mkdir -p reports
+        START_TS=$(date +%s)
+        echo "$START_TS" > reports/test-start-ts.txt
+
+        case "$TEST_TYPE" in
+          smoke)
+            echo "💨 Running smoke tests..."
+            pytest tests/ -v --browser $BROWSER --tb=short -m smoke --ctrf=reports/ctrf-report.json
+            ;;
+          regression)
+            echo "🔄 Running regression tests..."
+            pytest tests/ -v --browser $BROWSER --tb=short -m "smoke or regression" --ctrf=reports/ctrf-report.json
+            ;;
+          validation)
+            echo "✅ Running validation tests..."
+            pytest tests/ -v --browser $BROWSER --tb=short -m validation --ctrf=reports/ctrf-report.json
+            ;;
+          *)
+            echo "❌ Error: Invalid test type '$TEST_TYPE'"
+            echo "Supported test types: smoke, regression, validation"
+            exit 1
+            ;;
+        esac
+
+    - name: 🧾 Enrich CTRF with run parameters
+      if: always()
+      env:
+        TEST_TYPE: ${{ env.TEST_TYPE }}
+        BROWSER: ${{ env.BROWSER }}
+        DEVICE: ${{ env.DEVICE }}
+      run: |
+        if ! command -v jq >/dev/null 2>&1; then
+          sudo apt-get update
+          sudo apt-get install -y jq
+        fi
+        if [ -f reports/ctrf-report.json ]; then
+          jq --arg tt "$TEST_TYPE" --arg br "$BROWSER" --arg dv "$DEVICE" \
+            '.results.runParameters = {test_type:$tt, browser:$br, device:$dv}' \
+            reports/ctrf-report.json > reports/ctrf-report.tmp && mv reports/ctrf-report.tmp reports/ctrf-report.json
+        else
+          echo "No CTRF report found to enrich"
+        fi
+
+    - name: 📊 Upload Allure Results
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: allure-results-${{ matrix.python-version }}-${{ matrix.device }}
+        path: reports/allure-results/
+        retention-days: 30
+
+    - name: 📸 Upload Screenshots
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: screenshots-${{ steps.resolve_params.outputs.browser }}-${{ steps.resolve_params.outputs.device }}
+        path: |
+          reports/failed_screenshots/
+          snapshot_failures/
+        retention-days: 30
+
+    - name: 📝 Upload Test Reports
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: test-reports-${{ matrix.python-version }}-${{ matrix.device }}
+        path: |
+          reports/junit.xml
+          reports/pytest.log
+          reports/report.html
+          reports/ctrf-report.json
+          reports/run-parameters.txt
+        retention-days: 30
+
+    - name: 📊 Publish Test Results (CTRF)
+      uses: ctrf-io/github-test-reporter@v1
+      if: always()
+      with:
+        report-path: './reports/ctrf-report.json'
+        github-report: true
+        summary-report: true
+        failed-report: true
+        test-list-report: true
+        pull-request: true
+        update-comment: true
+        comment-tag: 'test-results-${{ matrix.python-version }}-${{ matrix.device }}'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: 🎬 Upload Playwright Traces
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: playwright-traces-${{ matrix.python-version }}-${{ matrix.device }}
+        path: |
+          reports/trace/
+          trace.zip
+          trace-*.zip
+        retention-days: 7
+
+    - name: 📝 Extract Commit Info
+      if: always()
+      id: commit_info
+      run: |
+        COMMIT_MESSAGE=$(git log -1 --pretty=format:%s)
+        COMMIT_AUTHOR=$(git log -1 --pretty=format:%an)
+
+        echo "COMMIT_MESSAGE<<COMMIT_EOF" >> $GITHUB_ENV
+        echo "$COMMIT_MESSAGE" >> $GITHUB_ENV
+        echo "COMMIT_EOF" >> $GITHUB_ENV
+
+        echo "COMMIT_AUTHOR=$COMMIT_AUTHOR" >> $GITHUB_ENV
+
+    - name: 📱 Generate Telegram Report
+      if: always()
+      id: telegram_report
+      env:
+        TEST_TYPE: ${{ env.TEST_TYPE }}
+        BROWSER: ${{ env.BROWSER }}
+        DEVICE: ${{ env.DEVICE }}
+        GITHUB_EVENT_NAME: ${{ github.event_name }}
+        GITHUB_RUN_NUMBER: ${{ github.run_number }}
+        GITHUB_REF_NAME: ${{ github.ref_name }}
+        GITHUB_SHA: ${{ github.sha }}
+        GITHUB_SERVER_URL: ${{ github.server_url }}
+        GITHUB_REPOSITORY: ${{ github.repository }}
+        GITHUB_RUN_ID: ${{ github.run_id }}
+        COMMIT_MESSAGE: ${{ env.COMMIT_MESSAGE }}
+        COMMIT_AUTHOR: ${{ env.COMMIT_AUTHOR }}
+      run: |
+        if [ ! -f reports/ctrf-report.json ]; then
+          echo "No CTRF report found, skipping Telegram notification"
+          echo "skip_telegram=true" >> $GITHUB_OUTPUT
+          exit 0
+        fi
+
+        # Run Python script to generate enhanced report
+        python3 .github/generate_telegram_report.py
+
+    - name: 📬 Send Telegram Notification
+      if: always() && steps.telegram_report.outputs.message != ''
+      uses: appleboy/telegram-action@master
+      with:
+        to: ${{ secrets.TELEGRAM_CHAT_ID }}
+        token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        format: html
+        disable_web_page_preview: false
+        message: ${{ steps.telegram_report.outputs.message }}

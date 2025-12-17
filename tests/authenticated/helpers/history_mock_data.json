@@ -1,0 +1,2111 @@
+{
+    "count": 90,
+    "next": null,
+    "previous": null,
+    "results": [
+        {
+            "id": 77210,
+            "title": "Add Cashback",
+            "description": "",
+            "sw_identifier": null,
+            "price": 288.0,
+            "created_at": "2025-11-10T16:38:50.000000+03:00",
+            "patch_file": "",
+            "patch_filename": null,
+            "patch_id": null,
+            "type": 4,
+            "task": null,
+            "info": null
+        },
+        {
+            "id": 77209,
+            "title": "BMW__TUN__NO_CS.bin",
+            "description": "Solutions applied: TUN",
+            "sw_identifier": {
+                "upgrade": "O_7BUJ-00000BAB-074",
+                "software": "N47D20T1-F10N47TL"
+            },
+            "price": 480.0,
+            "created_at": "2025-11-10T15:37:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/BMW__TUN__NO_CS.bin",
+            "patch_filename": "BMW__TUN__NO_CS.bin",
+            "patch_id": 34668,
+            "type": 1,
+            "task": "2025119.1915.7429",
+            "info": {
+                "mods": [
+                    "TUN"
+                ],
+                "sw_ident": {
+                    "upgrade": "O_7BUJ-00000BAB-074",
+                    "software": "N47D20T1-F10N47TL"
+                }
+            }
+        },
+        {
+            "id": 77208,
+            "title": "BMW__DPF_OFF__EGR_OFF__NO_CS.bin",
+            "description": "Solutions applied: DPF_OFF, EGR_OFF",
+            "sw_identifier": {
+                "upgrade": "O_7BUJ-00000BAB-074",
+                "software": "N47D20T1-F10N47TL"
+            },
+            "price": 960.0,
+            "created_at": "2025-11-10T14:36:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/BMW__DPF_OFF__EGR_OFF__NO_CS.bin",
+            "patch_filename": "BMW__DPF_OFF__EGR_OFF__NO_CS.bin",
+            "patch_id": 34667,
+            "type": 1,
+            "task": "20251110.1225.9497",
+            "info": {
+                "mods": [
+                    "DPF_OFF",
+                    "EGR_OFF"
+                ],
+                "sw_ident": {
+                    "upgrade": "O_7BUJ-00000BAB-074",
+                    "software": "N47D20T1-F10N47TL"
+                }
+            }
+        },
+        {
+            "id": 77207,
+            "title": "BMW__TUN__NO_CS__DTC_OFF_245C.bin",
+            "description": "Origin: 20251109.165218.5406\nDTC removed: 245C",
+            "sw_identifier": {
+                "upgrade": "O_7BUJ-00000BAB-074",
+                "software": "N47D20T1-F10N47TL"
+            },
+            "price": 0.0,
+            "created_at": "2025-11-09T13:35:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/BMW__TUN__NO_CS__DTC_OFF_245C.bin",
+            "patch_filename": "BMW__TUN__NO_CS__DTC_OFF_245C.bin",
+            "patch_id": 34666,
+            "type": 2,
+            "task": "20251110.163522.6654",
+            "info": {
+                "sw_ident": {
+                    "upgrade": "O_7BUJ-00000BAB-074",
+                    "software": "N47D20T1-F10N47TL"
+                },
+                "dtc_removed": [
+                    "245C"
+                ],
+                "origin_task": "20251109.165218.5406"
+            }
+        },
+        {
+            "id": 77206,
+            "title": "Audi__DTC_OFF__NO_CS_RszIqLy.bin",
+            "description": "Solutions applied: DTC_OFF",
+            "sw_identifier": {
+                "upgrade": "O_7BUJ-00000BAB-074",
+                "software": "N47D20T1-F10N47TL"
+            },
+            "price": 480.0,
+            "created_at": "2025-11-09T12:34:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/Audi__DTC_OFF__NO_CS_RszIqLy.bin",
+            "patch_filename": "Audi__DTC_OFF__NO_CS_RszIqLy.bin",
+            "patch_id": 34665,
+            "type": 1,
+            "task": "20251110.1814.2234",
+            "info": {
+                "mods": [
+                    "DTC_OFF"
+                ],
+                "sw_ident": {
+                    "upgrade": "O_7BUJ-00000BAB-074",
+                    "software": "N47D20T1-F10N47TL"
+                },
+                "dtc_removed": [
+                    "255D"
+                ]
+            }
+        },
+        {
+            "id": 77205,
+            "title": "Add Cashback",
+            "description": "",
+            "sw_identifier": null,
+            "price": 480.0,
+            "created_at": "2025-11-09T11:33:50.000000+03:00",
+            "patch_file": "",
+            "patch_filename": null,
+            "patch_id": null,
+            "type": 4,
+            "task": null,
+            "info": null
+        },
+        {
+            "id": 77204,
+            "title": "Mazda__TUN__NO_CS__DTC_OFF_242F.bin",
+            "description": "Origin: 20251109.165218.3145\nDTC removed: 242F",
+            "sw_identifier": {
+                "upgrade": "L3M7EF000L3T6061",
+                "version": "SW-L3M7EF000.HEX",
+                "software": "L3M7EF0WZ03"
+            },
+            "price": 0.0,
+            "created_at": "2025-11-08T10:32:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/Mazda__TUN__NO_CS__DTC_OFF_242F.bin",
+            "patch_filename": "Mazda__TUN__NO_CS__DTC_OFF_242F.bin",
+            "patch_id": 34663,
+            "type": 2,
+            "task": "20251110.163522.9636",
+            "info": {
+                "sw_ident": {
+                    "upgrade": "L3M7EF000L3T6061",
+                    "version": "SW-L3M7EF000.HEX",
+                    "software": "L3M7EF0WZ03"
+                },
+                "dtc_removed": [
+                    "242F"
+                ],
+                "origin_task": "20251109.165218.3145"
+            }
+        },
+        {
+            "id": 77203,
+            "title": "Reduce Cashback",
+            "description": "",
+            "sw_identifier": null,
+            "price": 2880.0,
+            "created_at": "2025-11-08T09:31:50.000000+03:00",
+            "patch_file": "",
+            "patch_filename": null,
+            "patch_id": null,
+            "type": 6,
+            "task": null,
+            "info": null
+        },
+        {
+            "id": 77202,
+            "title": "Mazda__TUN__NO_CS.bin",
+            "description": "Solutions applied: TUN",
+            "sw_identifier": {
+                "upgrade": "L3M7EF000L3T6061",
+                "version": "SW-L3M7EF000.HEX",
+                "software": "L3M7EF0WZ03"
+            },
+            "price": 480.0,
+            "created_at": "2025-11-08T08:30:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/Mazda__TUN__NO_CS.bin",
+            "patch_filename": "Mazda__TUN__NO_CS.bin",
+            "patch_id": 34661,
+            "type": 1,
+            "task": "2025118.1545.3102",
+            "info": {
+                "mods": [
+                    "TUN"
+                ],
+                "sw_ident": {
+                    "upgrade": "L3M7EF000L3T6061",
+                    "version": "SW-L3M7EF000.HEX",
+                    "software": "L3M7EF0WZ03"
+                }
+            }
+        },
+        {
+            "id": 77201,
+            "title": "BMW__TUN__NO_CS__DTC_OFF_245C_rU6nRmI.bin",
+            "description": "Origin: 20251109.165218.2005\nDTC removed: 245C",
+            "sw_identifier": {
+                "upgrade": "O_7BUJ-00000BAB-074",
+                "software": "N47D20T1-F10N47TL"
+            },
+            "price": 0.0,
+            "created_at": "2025-11-07T07:29:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/BMW__TUN__NO_CS__DTC_OFF_245C_rU6nRmI.bin",
+            "patch_filename": "BMW__TUN__NO_CS__DTC_OFF_245C_rU6nRmI.bin",
+            "patch_id": 34660,
+            "type": 2,
+            "task": "20251110.163522.8288",
+            "info": {
+                "sw_ident": {
+                    "upgrade": "O_7BUJ-00000BAB-074",
+                    "software": "N47D20T1-F10N47TL"
+                },
+                "dtc_removed": [
+                    "245C"
+                ],
+                "origin_task": "20251109.165218.2005"
+            }
+        },
+        {
+            "id": 77200,
+            "title": "Add Cashback",
+            "description": "",
+            "sw_identifier": null,
+            "price": 48.0,
+            "created_at": "2025-11-07T06:28:50.000000+03:00",
+            "patch_file": "",
+            "patch_filename": null,
+            "patch_id": null,
+            "type": 4,
+            "task": null,
+            "info": null
+        },
+        {
+            "id": 77199,
+            "title": "Mazda__TUN__DPF_OFF__EGR_OFF__LSU_OFF__VSA_OFF__Stage2__NO_CS_1rmW42B.bin",
+            "description": "Solutions applied: TUN, DPF_OFF, EGR_OFF, LSU_OFF, VSA_OFF, Stage2",
+            "sw_identifier": {
+                "upgrade": "L3M7EF000L3T6061",
+                "version": "SW-L3M7EF000.HEX",
+                "software": "L3M7EF0WZ03"
+            },
+            "price": 2880.0,
+            "created_at": "2025-11-07T05:27:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/Mazda__TUN__DPF_OFF__EGR_OFF__LSU_OFF__VSA_OFF__Stage2__NO_CS_1rmW42B.bin",
+            "patch_filename": "Mazda__TUN__DPF_OFF__EGR_OFF__LSU_OFF__VSA_OFF__Stage2__NO_CS_1rmW42B.bin",
+            "patch_id": 34658,
+            "type": 1,
+            "task": "2025118.1042.5339",
+            "info": {
+                "mods": [
+                    "TUN",
+                    "DPF_OFF",
+                    "EGR_OFF",
+                    "LSU_OFF",
+                    "VSA_OFF",
+                    "Stage2"
+                ],
+                "sw_ident": {
+                    "upgrade": "L3M7EF000L3T6061",
+                    "version": "SW-L3M7EF000.HEX",
+                    "software": "L3M7EF0WZ03"
+                }
+            }
+        },
+        {
+            "id": 77198,
+            "title": "BMW__TUN__NO_CS__DTC_OFF_P0401_uxHsPCh.bin",
+            "description": "Origin: 20251109.165218.3169\nDTC removed: P0401",
+            "sw_identifier": {
+                "upgrade": "O_7BUJ-00000BAB-074",
+                "software": "N47D20T1-F10N47TL"
+            },
+            "price": 0.0,
+            "created_at": "2025-11-06T04:26:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/BMW__TUN__NO_CS__DTC_OFF_P0401_uxHsPCh.bin",
+            "patch_filename": "BMW__TUN__NO_CS__DTC_OFF_P0401_uxHsPCh.bin",
+            "patch_id": 34657,
+            "type": 2,
+            "task": "20251110.163522.4885",
+            "info": {
+                "sw_ident": {
+                    "upgrade": "O_7BUJ-00000BAB-074",
+                    "software": "N47D20T1-F10N47TL"
+                },
+                "dtc_removed": [
+                    "P0401"
+                ],
+                "origin_task": "20251109.165218.3169"
+            }
+        },
+        {
+            "id": 77197,
+            "title": "Audi__TUN__DPF_OFF__EGR_OFF__LSU_OFF__VSA_OFF__Stage2__NO_CS_cdpTa86.bin",
+            "description": "Solutions applied: TUN, DPF_OFF, EGR_OFF, LSU_OFF, VSA_OFF, Stage2",
+            "sw_identifier": {
+                "upgrade": "O_7BUJ-00000BAB-074",
+                "software": "N47D20T1-F10N47TL"
+            },
+            "price": 2880.0,
+            "created_at": "2025-11-06T03:25:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/Audi__TUN__DPF_OFF__EGR_OFF__LSU_OFF__VSA_OFF__Stage2__NO_CS_cdpTa86.bin",
+            "patch_filename": "Audi__TUN__DPF_OFF__EGR_OFF__LSU_OFF__VSA_OFF__Stage2__NO_CS_cdpTa86.bin",
+            "patch_id": 34656,
+            "type": 1,
+            "task": "2025119.2323.2766",
+            "info": {
+                "mods": [
+                    "TUN",
+                    "DPF_OFF",
+                    "EGR_OFF",
+                    "LSU_OFF",
+                    "VSA_OFF",
+                    "Stage2"
+                ],
+                "sw_ident": {
+                    "upgrade": "O_7BUJ-00000BAB-074",
+                    "software": "N47D20T1-F10N47TL"
+                }
+            }
+        },
+        {
+            "id": 77196,
+            "title": "Reduce Cashback",
+            "description": "",
+            "sw_identifier": null,
+            "price": 1920.0,
+            "created_at": "2025-11-06T02:24:50.000000+03:00",
+            "patch_file": "",
+            "patch_filename": null,
+            "patch_id": null,
+            "type": 6,
+            "task": null,
+            "info": null
+        },
+        {
+            "id": 77195,
+            "title": "Add Cashback",
+            "description": "",
+            "sw_identifier": null,
+            "price": 480.0,
+            "created_at": "2025-11-05T01:23:50.000000+03:00",
+            "patch_file": "",
+            "patch_filename": null,
+            "patch_id": null,
+            "type": 4,
+            "task": null,
+            "info": null
+        },
+        {
+            "id": 77194,
+            "title": "Mercedes__TUN__DPF_OFF__EGR_OFF__LSU_OFF__VSA_OFF__Stage2__NO_CS_dJhB2xQ.bin",
+            "description": "Solutions applied: TUN, DPF_OFF, EGR_OFF, LSU_OFF, VSA_OFF, Stage2",
+            "sw_identifier": {
+                "upgrade": "O_7BUJ-00000BAB-074",
+                "software": "N47D20T1-F10N47TL"
+            },
+            "price": 2880.0,
+            "created_at": "2025-11-05T00:22:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/Mercedes__TUN__DPF_OFF__EGR_OFF__LSU_OFF__VSA_OFF__Stage2__NO_CS_dJhB2xQ.bin",
+            "patch_filename": "Mercedes__TUN__DPF_OFF__EGR_OFF__LSU_OFF__VSA_OFF__Stage2__NO_CS_dJhB2xQ.bin",
+            "patch_id": 34653,
+            "type": 1,
+            "task": "2025119.1410.7535",
+            "info": {
+                "mods": [
+                    "TUN",
+                    "DPF_OFF",
+                    "EGR_OFF",
+                    "LSU_OFF",
+                    "VSA_OFF",
+                    "Stage2"
+                ],
+                "sw_ident": {
+                    "upgrade": "O_7BUJ-00000BAB-074",
+                    "software": "N47D20T1-F10N47TL"
+                }
+            }
+        },
+        {
+            "id": 77193,
+            "title": "Mazda__TUN__DPF_OFF__EGR_OFF__NO_CS.bin",
+            "description": "Solutions applied: TUN, DPF_OFF, EGR_OFF",
+            "sw_identifier": {
+                "upgrade": "L3M7EF000L3T6061",
+                "version": "SW-L3M7EF000.HEX",
+                "software": "L3M7EF0WZ03"
+            },
+            "price": 1440.0,
+            "created_at": "2025-11-04T23:21:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/Mazda__TUN__DPF_OFF__EGR_OFF__NO_CS.bin",
+            "patch_filename": "Mazda__TUN__DPF_OFF__EGR_OFF__NO_CS.bin",
+            "patch_id": 34652,
+            "type": 1,
+            "task": "20251110.1735.8528",
+            "info": {
+                "mods": [
+                    "TUN",
+                    "DPF_OFF",
+                    "EGR_OFF"
+                ],
+                "sw_ident": {
+                    "upgrade": "L3M7EF000L3T6061",
+                    "version": "SW-L3M7EF000.HEX",
+                    "software": "L3M7EF0WZ03"
+                }
+            }
+        },
+        {
+            "id": 77192,
+            "title": "BMW__TUN__NO_CS__DTC_OFF_242F.bin",
+            "description": "Origin: 20251109.165218.8597\nDTC removed: 242F",
+            "sw_identifier": {
+                "upgrade": "O_7BUJ-00000BAB-074",
+                "software": "N47D20T1-F10N47TL"
+            },
+            "price": 0.0,
+            "created_at": "2025-11-03T22:20:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/BMW__TUN__NO_CS__DTC_OFF_242F.bin",
+            "patch_filename": "BMW__TUN__NO_CS__DTC_OFF_242F.bin",
+            "patch_id": 34651,
+            "type": 2,
+            "task": "20251110.163522.1464",
+            "info": {
+                "sw_ident": {
+                    "upgrade": "O_7BUJ-00000BAB-074",
+                    "software": "N47D20T1-F10N47TL"
+                },
+                "dtc_removed": [
+                    "242F"
+                ],
+                "origin_task": "20251109.165218.8597"
+            }
+        },
+        {
+            "id": 77191,
+            "title": "Mazda__TUN__NO_CS_k1WuzVq.bin",
+            "description": "Solutions applied: TUN",
+            "sw_identifier": {
+                "upgrade": "L3M7EF000L3T6061",
+                "version": "SW-L3M7EF000.HEX",
+                "software": "L3M7EF0WZ03"
+            },
+            "price": 480.0,
+            "created_at": "2025-11-03T21:19:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/Mazda__TUN__NO_CS_k1WuzVq.bin",
+            "patch_filename": "Mazda__TUN__NO_CS_k1WuzVq.bin",
+            "patch_id": 34650,
+            "type": 1,
+            "task": "20251110.1546.5219",
+            "info": {
+                "mods": [
+                    "TUN"
+                ],
+                "sw_ident": {
+                    "upgrade": "L3M7EF000L3T6061",
+                    "version": "SW-L3M7EF000.HEX",
+                    "software": "L3M7EF0WZ03"
+                }
+            }
+        },
+        {
+            "id": 77190,
+            "title": "Add Cashback",
+            "description": "",
+            "sw_identifier": null,
+            "price": 480.0,
+            "created_at": "2025-11-03T20:18:50.000000+03:00",
+            "patch_file": "",
+            "patch_filename": null,
+            "patch_id": null,
+            "type": 4,
+            "task": null,
+            "info": null
+        },
+        {
+            "id": 77189,
+            "title": "Reduce Cashback",
+            "description": "",
+            "sw_identifier": null,
+            "price": 2880.0,
+            "created_at": "2025-11-02T19:17:50.000000+03:00",
+            "patch_file": "",
+            "patch_filename": null,
+            "patch_id": null,
+            "type": 6,
+            "task": null,
+            "info": null
+        },
+        {
+            "id": 77188,
+            "title": "BMW__TUN__DPF_OFF__EGR_OFF__LSU_OFF__VSA_OFF__Stage2__NO_CS_pxadMGy.bin",
+            "description": "Solutions applied: TUN, DPF_OFF, EGR_OFF, LSU_OFF, VSA_OFF, Stage2",
+            "sw_identifier": {
+                "upgrade": "O_7BUJ-00000BAB-074",
+                "software": "N47D20T1-F10N47TL"
+            },
+            "price": 2880.0,
+            "created_at": "2025-11-02T18:16:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/BMW__TUN__DPF_OFF__EGR_OFF__LSU_OFF__VSA_OFF__Stage2__NO_CS_pxadMGy.bin",
+            "patch_filename": "BMW__TUN__DPF_OFF__EGR_OFF__LSU_OFF__VSA_OFF__Stage2__NO_CS_pxadMGy.bin",
+            "patch_id": 34647,
+            "type": 1,
+            "task": "20251110.2255.4021",
+            "info": {
+                "mods": [
+                    "TUN",
+                    "DPF_OFF",
+                    "EGR_OFF",
+                    "LSU_OFF",
+                    "VSA_OFF",
+                    "Stage2"
+                ],
+                "sw_ident": {
+                    "upgrade": "O_7BUJ-00000BAB-074",
+                    "software": "N47D20T1-F10N47TL"
+                }
+            }
+        },
+        {
+            "id": 77187,
+            "title": "Audi__TUN__DPF_OFF__EGR_OFF__NO_CS_TdgVkve.bin",
+            "description": "Solutions applied: TUN, DPF_OFF, EGR_OFF",
+            "sw_identifier": {
+                "upgrade": "O_7BUJ-00000BAB-074",
+                "software": "N47D20T1-F10N47TL"
+            },
+            "price": 1440.0,
+            "created_at": "2025-11-02T17:15:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/Audi__TUN__DPF_OFF__EGR_OFF__NO_CS_TdgVkve.bin",
+            "patch_filename": "Audi__TUN__DPF_OFF__EGR_OFF__NO_CS_TdgVkve.bin",
+            "patch_id": 34646,
+            "type": 1,
+            "task": "20251110.1031.9634",
+            "info": {
+                "mods": [
+                    "TUN",
+                    "DPF_OFF",
+                    "EGR_OFF"
+                ],
+                "sw_ident": {
+                    "upgrade": "O_7BUJ-00000BAB-074",
+                    "software": "N47D20T1-F10N47TL"
+                }
+            }
+        },
+        {
+            "id": 77186,
+            "title": "BMW__TUN__NO_CS__DTC_OFF_245C_fUZ8tLf.bin",
+            "description": "Origin: 20251109.165218.4967\nDTC removed: 245C",
+            "sw_identifier": {
+                "upgrade": "O_7BUJ-00000BAB-074",
+                "software": "N47D20T1-F10N47TL"
+            },
+            "price": 0.0,
+            "created_at": "2025-11-02T16:14:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/BMW__TUN__NO_CS__DTC_OFF_245C_fUZ8tLf.bin",
+            "patch_filename": "BMW__TUN__NO_CS__DTC_OFF_245C_fUZ8tLf.bin",
+            "patch_id": 34645,
+            "type": 2,
+            "task": "20251110.163522.6716",
+            "info": {
+                "sw_ident": {
+                    "upgrade": "O_7BUJ-00000BAB-074",
+                    "software": "N47D20T1-F10N47TL"
+                },
+                "dtc_removed": [
+                    "245C"
+                ],
+                "origin_task": "20251109.165218.4967"
+            }
+        },
+        {
+            "id": 77185,
+            "title": "Add Cashback",
+            "description": "",
+            "sw_identifier": null,
+            "price": 480.0,
+            "created_at": "2025-11-02T15:13:50.000000+03:00",
+            "patch_file": "",
+            "patch_filename": null,
+            "patch_id": null,
+            "type": 4,
+            "task": null,
+            "info": null
+        },
+        {
+            "id": 77184,
+            "title": "Mercedes__DTC_OFF__NO_CS.bin",
+            "description": "Solutions applied: DTC_OFF",
+            "sw_identifier": {
+                "upgrade": "O_7BUJ-00000BAB-074",
+                "software": "N47D20T1-F10N47TL"
+            },
+            "price": 480.0,
+            "created_at": "2025-11-02T14:12:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/Mercedes__DTC_OFF__NO_CS.bin",
+            "patch_filename": "Mercedes__DTC_OFF__NO_CS.bin",
+            "patch_id": 34643,
+            "type": 1,
+            "task": "2025119.2144.2549",
+            "info": {
+                "mods": [
+                    "DTC_OFF"
+                ],
+                "sw_ident": {
+                    "upgrade": "O_7BUJ-00000BAB-074",
+                    "software": "N47D20T1-F10N47TL"
+                },
+                "dtc_removed": [
+                    "245C",
+                    "P0401",
+                    "P0420"
+                ]
+            }
+        },
+        {
+            "id": 77183,
+            "title": "Mazda__TUN__NO_CS__DTC_OFF_2096_rNDOPxy.bin",
+            "description": "Origin: 20251109.165218.8215\nDTC removed: 2096",
+            "sw_identifier": {
+                "upgrade": "L3M7EF000L3T6061",
+                "version": "SW-L3M7EF000.HEX",
+                "software": "L3M7EF0WZ03"
+            },
+            "price": 0.0,
+            "created_at": "2025-11-01T13:11:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/Mazda__TUN__NO_CS__DTC_OFF_2096_rNDOPxy.bin",
+            "patch_filename": "Mazda__TUN__NO_CS__DTC_OFF_2096_rNDOPxy.bin",
+            "patch_id": 34642,
+            "type": 2,
+            "task": "20251110.163522.6040",
+            "info": {
+                "sw_ident": {
+                    "upgrade": "L3M7EF000L3T6061",
+                    "version": "SW-L3M7EF000.HEX",
+                    "software": "L3M7EF0WZ03"
+                },
+                "dtc_removed": [
+                    "2096"
+                ],
+                "origin_task": "20251109.165218.8215"
+            }
+        },
+        {
+            "id": 77182,
+            "title": "Reduce Cashback",
+            "description": "",
+            "sw_identifier": null,
+            "price": 1920.0,
+            "created_at": "2025-11-01T12:10:50.000000+03:00",
+            "patch_file": "",
+            "patch_filename": null,
+            "patch_id": null,
+            "type": 6,
+            "task": null,
+            "info": null
+        },
+        {
+            "id": 77181,
+            "title": "Mazda__TUN__DPF_OFF__EGR_OFF__NO_CS.bin",
+            "description": "Solutions applied: TUN, DPF_OFF, EGR_OFF",
+            "sw_identifier": {
+                "upgrade": "L3M7EF000L3T6061",
+                "version": "SW-L3M7EF000.HEX",
+                "software": "L3M7EF0WZ03"
+            },
+            "price": 1440.0,
+            "created_at": "2025-11-01T11:09:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/Mazda__TUN__DPF_OFF__EGR_OFF__NO_CS.bin",
+            "patch_filename": "Mazda__TUN__DPF_OFF__EGR_OFF__NO_CS.bin",
+            "patch_id": 34640,
+            "type": 1,
+            "task": "2025118.2120.7787",
+            "info": {
+                "mods": [
+                    "TUN",
+                    "DPF_OFF",
+                    "EGR_OFF"
+                ],
+                "sw_ident": {
+                    "upgrade": "L3M7EF000L3T6061",
+                    "version": "SW-L3M7EF000.HEX",
+                    "software": "L3M7EF0WZ03"
+                }
+            }
+        },
+        {
+            "id": 77180,
+            "title": "Add Cashback",
+            "description": "",
+            "sw_identifier": null,
+            "price": 48.0,
+            "created_at": "2025-10-31T10:08:50.000000+03:00",
+            "patch_file": "",
+            "patch_filename": null,
+            "patch_id": null,
+            "type": 4,
+            "task": null,
+            "info": null
+        },
+        {
+            "id": 77179,
+            "title": "BMW__TUN__DTC_OFF__NO_CS_LKvIVzE.bin",
+            "description": "Solutions applied: TUN, DTC_OFF",
+            "sw_identifier": {
+                "upgrade": "O_7BUJ-00000BAB-074",
+                "software": "N47D20T1-F10N47TL"
+            },
+            "price": 960.0,
+            "created_at": "2025-10-31T09:07:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/BMW__TUN__DTC_OFF__NO_CS_LKvIVzE.bin",
+            "patch_filename": "BMW__TUN__DTC_OFF__NO_CS_LKvIVzE.bin",
+            "patch_id": 34638,
+            "type": 1,
+            "task": "2025118.1727.3680",
+            "info": {
+                "mods": [
+                    "TUN",
+                    "DTC_OFF"
+                ],
+                "sw_ident": {
+                    "upgrade": "O_7BUJ-00000BAB-074",
+                    "software": "N47D20T1-F10N47TL"
+                },
+                "dtc_removed": [
+                    "2096"
+                ]
+            }
+        },
+        {
+            "id": 77178,
+            "title": "Mazda__DPF_OFF__EGR_OFF__NO_CS.bin",
+            "description": "Solutions applied: DPF_OFF, EGR_OFF",
+            "sw_identifier": {
+                "upgrade": "L3M7EF000L3T6061",
+                "version": "SW-L3M7EF000.HEX",
+                "software": "L3M7EF0WZ03"
+            },
+            "price": 960.0,
+            "created_at": "2025-10-31T08:06:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/Mazda__DPF_OFF__EGR_OFF__NO_CS.bin",
+            "patch_filename": "Mazda__DPF_OFF__EGR_OFF__NO_CS.bin",
+            "patch_id": 34637,
+            "type": 1,
+            "task": "2025119.2057.9249",
+            "info": {
+                "mods": [
+                    "DPF_OFF",
+                    "EGR_OFF"
+                ],
+                "sw_ident": {
+                    "upgrade": "L3M7EF000L3T6061",
+                    "version": "SW-L3M7EF000.HEX",
+                    "software": "L3M7EF0WZ03"
+                }
+            }
+        },
+        {
+            "id": 77177,
+            "title": "Mazda__TUN__NO_CS__DTC_OFF_242F.bin",
+            "description": "Origin: 20251109.165218.4562\nDTC removed: 242F",
+            "sw_identifier": {
+                "upgrade": "L3M7EF000L3T6061",
+                "version": "SW-L3M7EF000.HEX",
+                "software": "L3M7EF0WZ03"
+            },
+            "price": 0.0,
+            "created_at": "2025-10-30T07:05:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/Mazda__TUN__NO_CS__DTC_OFF_242F.bin",
+            "patch_filename": "Mazda__TUN__NO_CS__DTC_OFF_242F.bin",
+            "patch_id": 34636,
+            "type": 2,
+            "task": "20251110.163522.8358",
+            "info": {
+                "sw_ident": {
+                    "upgrade": "L3M7EF000L3T6061",
+                    "version": "SW-L3M7EF000.HEX",
+                    "software": "L3M7EF0WZ03"
+                },
+                "dtc_removed": [
+                    "242F"
+                ],
+                "origin_task": "20251109.165218.4562"
+            }
+        },
+        {
+            "id": 77176,
+            "title": "Mercedes__DPF_OFF__EGR_OFF__NO_CS_MdWEyfn.bin",
+            "description": "Solutions applied: DPF_OFF, EGR_OFF",
+            "sw_identifier": {
+                "upgrade": "O_7BUJ-00000BAB-074",
+                "software": "N47D20T1-F10N47TL"
+            },
+            "price": 960.0,
+            "created_at": "2025-10-30T06:04:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/Mercedes__DPF_OFF__EGR_OFF__NO_CS_MdWEyfn.bin",
+            "patch_filename": "Mercedes__DPF_OFF__EGR_OFF__NO_CS_MdWEyfn.bin",
+            "patch_id": 34635,
+            "type": 1,
+            "task": "20251110.1617.3568",
+            "info": {
+                "mods": [
+                    "DPF_OFF",
+                    "EGR_OFF"
+                ],
+                "sw_ident": {
+                    "upgrade": "O_7BUJ-00000BAB-074",
+                    "software": "N47D20T1-F10N47TL"
+                }
+            }
+        },
+        {
+            "id": 77175,
+            "title": "Add Cashback",
+            "description": "",
+            "sw_identifier": null,
+            "price": 48.0,
+            "created_at": "2025-10-30T05:03:50.000000+03:00",
+            "patch_file": "",
+            "patch_filename": null,
+            "patch_id": null,
+            "type": 4,
+            "task": null,
+            "info": null
+        },
+        {
+            "id": 77174,
+            "title": "BMW__TUN__NO_CS__DTC_OFF_2096.bin",
+            "description": "Origin: 20251109.165218.1634\nDTC removed: 2096",
+            "sw_identifier": {
+                "upgrade": "O_7BUJ-00000BAB-074",
+                "software": "N47D20T1-F10N47TL"
+            },
+            "price": 0.0,
+            "created_at": "2025-10-29T04:02:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/BMW__TUN__NO_CS__DTC_OFF_2096.bin",
+            "patch_filename": "BMW__TUN__NO_CS__DTC_OFF_2096.bin",
+            "patch_id": 34633,
+            "type": 2,
+            "task": "20251110.163522.9912",
+            "info": {
+                "sw_ident": {
+                    "upgrade": "O_7BUJ-00000BAB-074",
+                    "software": "N47D20T1-F10N47TL"
+                },
+                "dtc_removed": [
+                    "2096"
+                ],
+                "origin_task": "20251109.165218.1634"
+            }
+        },
+        {
+            "id": 77173,
+            "title": "BMW__TUN__DPF_OFF__EGR_OFF__NO_CS_ScJ4UF9.bin",
+            "description": "Solutions applied: TUN, DPF_OFF, EGR_OFF",
+            "sw_identifier": {
+                "upgrade": "O_7BUJ-00000BAB-074",
+                "software": "N47D20T1-F10N47TL"
+            },
+            "price": 1440.0,
+            "created_at": "2025-10-29T03:01:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/BMW__TUN__DPF_OFF__EGR_OFF__NO_CS_ScJ4UF9.bin",
+            "patch_filename": "BMW__TUN__DPF_OFF__EGR_OFF__NO_CS_ScJ4UF9.bin",
+            "patch_id": 34632,
+            "type": 1,
+            "task": "20251110.2153.7523",
+            "info": {
+                "mods": [
+                    "TUN",
+                    "DPF_OFF",
+                    "EGR_OFF"
+                ],
+                "sw_ident": {
+                    "upgrade": "O_7BUJ-00000BAB-074",
+                    "software": "N47D20T1-F10N47TL"
+                }
+            }
+        },
+        {
+            "id": 77172,
+            "title": "BMW__TUN__NO_CS.bin",
+            "description": "Solutions applied: TUN",
+            "sw_identifier": {
+                "upgrade": "O_7BUJ-00000BAB-074",
+                "software": "N47D20T1-F10N47TL"
+            },
+            "price": 480.0,
+            "created_at": "2025-10-29T02:00:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/BMW__TUN__NO_CS.bin",
+            "patch_filename": "BMW__TUN__NO_CS.bin",
+            "patch_id": 34631,
+            "type": 1,
+            "task": "20251110.1226.7522",
+            "info": {
+                "mods": [
+                    "TUN"
+                ],
+                "sw_ident": {
+                    "upgrade": "O_7BUJ-00000BAB-074",
+                    "software": "N47D20T1-F10N47TL"
+                }
+            }
+        },
+        {
+            "id": 77171,
+            "title": "Mazda__TUN__NO_CS__DTC_OFF_242F_Lj9PHYV.bin",
+            "description": "Origin: 20251109.165218.1834\nDTC removed: 242F",
+            "sw_identifier": {
+                "upgrade": "L3M7EF000L3T6061",
+                "version": "SW-L3M7EF000.HEX",
+                "software": "L3M7EF0WZ03"
+            },
+            "price": 0.0,
+            "created_at": "2025-10-28T00:59:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/Mazda__TUN__NO_CS__DTC_OFF_242F_Lj9PHYV.bin",
+            "patch_filename": "Mazda__TUN__NO_CS__DTC_OFF_242F_Lj9PHYV.bin",
+            "patch_id": 34630,
+            "type": 2,
+            "task": "20251110.163522.2154",
+            "info": {
+                "sw_ident": {
+                    "upgrade": "L3M7EF000L3T6061",
+                    "version": "SW-L3M7EF000.HEX",
+                    "software": "L3M7EF0WZ03"
+                },
+                "dtc_removed": [
+                    "242F"
+                ],
+                "origin_task": "20251109.165218.1834"
+            }
+        },
+        {
+            "id": 77170,
+            "title": "Add Cashback",
+            "description": "",
+            "sw_identifier": null,
+            "price": 48.0,
+            "created_at": "2025-10-27T23:58:50.000000+03:00",
+            "patch_file": "",
+            "patch_filename": null,
+            "patch_id": null,
+            "type": 4,
+            "task": null,
+            "info": null
+        },
+        {
+            "id": 77169,
+            "title": "VW__EGR_OFF__TUN__NO_CS_9rTd0r4.bin",
+            "description": "Solutions applied: EGR_OFF, TUN",
+            "sw_identifier": {
+                "upgrade": "O_7BUJ-00000BAB-074",
+                "software": "N47D20T1-F10N47TL"
+            },
+            "price": 960.0,
+            "created_at": "2025-10-27T22:57:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/VW__EGR_OFF__TUN__NO_CS_9rTd0r4.bin",
+            "patch_filename": "VW__EGR_OFF__TUN__NO_CS_9rTd0r4.bin",
+            "patch_id": 34628,
+            "type": 1,
+            "task": "2025119.1541.1022",
+            "info": {
+                "mods": [
+                    "EGR_OFF",
+                    "TUN"
+                ],
+                "sw_ident": {
+                    "upgrade": "O_7BUJ-00000BAB-074",
+                    "software": "N47D20T1-F10N47TL"
+                }
+            }
+        },
+        {
+            "id": 77168,
+            "title": "Reduce Cashback",
+            "description": "",
+            "sw_identifier": null,
+            "price": 2880.0,
+            "created_at": "2025-10-26T21:56:50.000000+03:00",
+            "patch_file": "",
+            "patch_filename": null,
+            "patch_id": null,
+            "type": 6,
+            "task": null,
+            "info": null
+        },
+        {
+            "id": 77167,
+            "title": "BMW__EGR_OFF__TUN__NO_CS.bin",
+            "description": "Solutions applied: EGR_OFF, TUN",
+            "sw_identifier": {
+                "upgrade": "O_7BUJ-00000BAB-074",
+                "software": "N47D20T1-F10N47TL"
+            },
+            "price": 960.0,
+            "created_at": "2025-10-26T20:55:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/BMW__EGR_OFF__TUN__NO_CS.bin",
+            "patch_filename": "BMW__EGR_OFF__TUN__NO_CS.bin",
+            "patch_id": 34626,
+            "type": 1,
+            "task": "20251110.2128.6024",
+            "info": {
+                "mods": [
+                    "EGR_OFF",
+                    "TUN"
+                ],
+                "sw_ident": {
+                    "upgrade": "O_7BUJ-00000BAB-074",
+                    "software": "N47D20T1-F10N47TL"
+                }
+            }
+        },
+        {
+            "id": 77166,
+            "title": "Mazda__TUN__DPF_OFF__EGR_OFF__NO_CS_rzfOhQ9.bin",
+            "description": "Solutions applied: TUN, DPF_OFF, EGR_OFF",
+            "sw_identifier": {
+                "upgrade": "L3M7EF000L3T6061",
+                "version": "SW-L3M7EF000.HEX",
+                "software": "L3M7EF0WZ03"
+            },
+            "price": 1440.0,
+            "created_at": "2025-10-26T19:54:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/Mazda__TUN__DPF_OFF__EGR_OFF__NO_CS_rzfOhQ9.bin",
+            "patch_filename": "Mazda__TUN__DPF_OFF__EGR_OFF__NO_CS_rzfOhQ9.bin",
+            "patch_id": 34625,
+            "type": 1,
+            "task": "2025119.1517.1441",
+            "info": {
+                "mods": [
+                    "TUN",
+                    "DPF_OFF",
+                    "EGR_OFF"
+                ],
+                "sw_ident": {
+                    "upgrade": "L3M7EF000L3T6061",
+                    "version": "SW-L3M7EF000.HEX",
+                    "software": "L3M7EF0WZ03"
+                }
+            }
+        },
+        {
+            "id": 77165,
+            "title": "Add Cashback",
+            "description": "",
+            "sw_identifier": null,
+            "price": 48.0,
+            "created_at": "2025-10-25T18:53:50.000000+03:00",
+            "patch_file": "",
+            "patch_filename": null,
+            "patch_id": null,
+            "type": 4,
+            "task": null,
+            "info": null
+        },
+        {
+            "id": 77164,
+            "title": "VW__DPF_OFF__EGR_OFF__NO_CS.bin",
+            "description": "Solutions applied: DPF_OFF, EGR_OFF",
+            "sw_identifier": {
+                "upgrade": "O_7BUJ-00000BAB-074",
+                "software": "N47D20T1-F10N47TL"
+            },
+            "price": 960.0,
+            "created_at": "2025-10-25T17:52:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/VW__DPF_OFF__EGR_OFF__NO_CS.bin",
+            "patch_filename": "VW__DPF_OFF__EGR_OFF__NO_CS.bin",
+            "patch_id": 34623,
+            "type": 1,
+            "task": "2025118.1920.5759",
+            "info": {
+                "mods": [
+                    "DPF_OFF",
+                    "EGR_OFF"
+                ],
+                "sw_ident": {
+                    "upgrade": "O_7BUJ-00000BAB-074",
+                    "software": "N47D20T1-F10N47TL"
+                }
+            }
+        },
+        {
+            "id": 77163,
+            "title": "BMW__EGR_OFF__TUN__NO_CS.bin",
+            "description": "Solutions applied: EGR_OFF, TUN",
+            "sw_identifier": {
+                "upgrade": "O_7BUJ-00000BAB-074",
+                "software": "N47D20T1-F10N47TL"
+            },
+            "price": 960.0,
+            "created_at": "2025-10-25T16:51:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/BMW__EGR_OFF__TUN__NO_CS.bin",
+            "patch_filename": "BMW__EGR_OFF__TUN__NO_CS.bin",
+            "patch_id": 34622,
+            "type": 1,
+            "task": "2025119.2135.4164",
+            "info": {
+                "mods": [
+                    "EGR_OFF",
+                    "TUN"
+                ],
+                "sw_ident": {
+                    "upgrade": "O_7BUJ-00000BAB-074",
+                    "software": "N47D20T1-F10N47TL"
+                }
+            }
+        },
+        {
+            "id": 77162,
+            "title": "Mazda__TUN__NO_CS__DTC_OFF_P0402_jvrlyeM.bin",
+            "description": "Origin: 20251109.165218.3399\nDTC removed: P0402",
+            "sw_identifier": {
+                "upgrade": "L3M7EF000L3T6061",
+                "version": "SW-L3M7EF000.HEX",
+                "software": "L3M7EF0WZ03"
+            },
+            "price": 0.0,
+            "created_at": "2025-10-25T15:50:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/Mazda__TUN__NO_CS__DTC_OFF_P0402_jvrlyeM.bin",
+            "patch_filename": "Mazda__TUN__NO_CS__DTC_OFF_P0402_jvrlyeM.bin",
+            "patch_id": 34621,
+            "type": 2,
+            "task": "20251110.163522.2227",
+            "info": {
+                "sw_ident": {
+                    "upgrade": "L3M7EF000L3T6061",
+                    "version": "SW-L3M7EF000.HEX",
+                    "software": "L3M7EF0WZ03"
+                },
+                "dtc_removed": [
+                    "P0402"
+                ],
+                "origin_task": "20251109.165218.3399"
+            }
+        },
+        {
+            "id": 77161,
+            "title": "Reduce Cashback",
+            "description": "",
+            "sw_identifier": null,
+            "price": 1920.0,
+            "created_at": "2025-10-25T14:49:50.000000+03:00",
+            "patch_file": "",
+            "patch_filename": null,
+            "patch_id": null,
+            "type": 6,
+            "task": null,
+            "info": null
+        },
+        {
+            "id": 77160,
+            "title": "Add Cashback",
+            "description": "",
+            "sw_identifier": null,
+            "price": 192.0,
+            "created_at": "2025-10-25T13:48:50.000000+03:00",
+            "patch_file": "",
+            "patch_filename": null,
+            "patch_id": null,
+            "type": 4,
+            "task": null,
+            "info": null
+        },
+        {
+            "id": 77159,
+            "title": "Mazda__TUN__NO_CS__DTC_OFF_242F.bin",
+            "description": "Origin: 20251109.165218.2461\nDTC removed: 242F",
+            "sw_identifier": {
+                "upgrade": "L3M7EF000L3T6061",
+                "version": "SW-L3M7EF000.HEX",
+                "software": "L3M7EF0WZ03"
+            },
+            "price": 0.0,
+            "created_at": "2025-10-24T12:47:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/Mazda__TUN__NO_CS__DTC_OFF_242F.bin",
+            "patch_filename": "Mazda__TUN__NO_CS__DTC_OFF_242F.bin",
+            "patch_id": 34618,
+            "type": 2,
+            "task": "20251110.163522.6228",
+            "info": {
+                "sw_ident": {
+                    "upgrade": "L3M7EF000L3T6061",
+                    "version": "SW-L3M7EF000.HEX",
+                    "software": "L3M7EF0WZ03"
+                },
+                "dtc_removed": [
+                    "242F"
+                ],
+                "origin_task": "20251109.165218.2461"
+            }
+        },
+        {
+            "id": 77158,
+            "title": "Mazda__DTC_OFF__NO_CS_U6IqAor.bin",
+            "description": "Solutions applied: DTC_OFF",
+            "sw_identifier": {
+                "upgrade": "L3M7EF000L3T6061",
+                "version": "SW-L3M7EF000.HEX",
+                "software": "L3M7EF0WZ03"
+            },
+            "price": 480.0,
+            "created_at": "2025-10-24T11:46:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/Mazda__DTC_OFF__NO_CS_U6IqAor.bin",
+            "patch_filename": "Mazda__DTC_OFF__NO_CS_U6IqAor.bin",
+            "patch_id": 34617,
+            "type": 1,
+            "task": "2025118.1928.2153",
+            "info": {
+                "mods": [
+                    "DTC_OFF"
+                ],
+                "sw_ident": {
+                    "upgrade": "L3M7EF000L3T6061",
+                    "version": "SW-L3M7EF000.HEX",
+                    "software": "L3M7EF0WZ03"
+                },
+                "dtc_removed": [
+                    "P0401"
+                ]
+            }
+        },
+        {
+            "id": 77157,
+            "title": "Mazda__TUN__NO_CS_6TqqdqQ.bin",
+            "description": "Solutions applied: TUN",
+            "sw_identifier": {
+                "upgrade": "L3M7EF000L3T6061",
+                "version": "SW-L3M7EF000.HEX",
+                "software": "L3M7EF0WZ03"
+            },
+            "price": 480.0,
+            "created_at": "2025-10-24T10:45:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/Mazda__TUN__NO_CS_6TqqdqQ.bin",
+            "patch_filename": "Mazda__TUN__NO_CS_6TqqdqQ.bin",
+            "patch_id": 34616,
+            "type": 1,
+            "task": "2025119.1943.6476",
+            "info": {
+                "mods": [
+                    "TUN"
+                ],
+                "sw_ident": {
+                    "upgrade": "L3M7EF000L3T6061",
+                    "version": "SW-L3M7EF000.HEX",
+                    "software": "L3M7EF0WZ03"
+                }
+            }
+        },
+        {
+            "id": 77156,
+            "title": "BMW__TUN__NO_CS__DTC_OFF_P0402_0oNuSmG.bin",
+            "description": "Origin: 20251109.165218.8214\nDTC removed: P0402",
+            "sw_identifier": {
+                "upgrade": "O_7BUJ-00000BAB-074",
+                "software": "N47D20T1-F10N47TL"
+            },
+            "price": 0.0,
+            "created_at": "2025-10-23T09:44:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/BMW__TUN__NO_CS__DTC_OFF_P0402_0oNuSmG.bin",
+            "patch_filename": "BMW__TUN__NO_CS__DTC_OFF_P0402_0oNuSmG.bin",
+            "patch_id": 34615,
+            "type": 2,
+            "task": "20251110.163522.2806",
+            "info": {
+                "sw_ident": {
+                    "upgrade": "O_7BUJ-00000BAB-074",
+                    "software": "N47D20T1-F10N47TL"
+                },
+                "dtc_removed": [
+                    "P0402"
+                ],
+                "origin_task": "20251109.165218.8214"
+            }
+        },
+        {
+            "id": 77155,
+            "title": "Add Cashback",
+            "description": "",
+            "sw_identifier": null,
+            "price": 48.0,
+            "created_at": "2025-10-23T08:43:50.000000+03:00",
+            "patch_file": "",
+            "patch_filename": null,
+            "patch_id": null,
+            "type": 4,
+            "task": null,
+            "info": null
+        },
+        {
+            "id": 77154,
+            "title": "Reduce Cashback",
+            "description": "",
+            "sw_identifier": null,
+            "price": 1920.0,
+            "created_at": "2025-10-23T07:42:50.000000+03:00",
+            "patch_file": "",
+            "patch_filename": null,
+            "patch_id": null,
+            "type": 6,
+            "task": null,
+            "info": null
+        },
+        {
+            "id": 77153,
+            "title": "BMW__TUN__NO_CS__DTC_OFF_P0401.bin",
+            "description": "Origin: 20251109.165218.7501\nDTC removed: P0401",
+            "sw_identifier": {
+                "upgrade": "O_7BUJ-00000BAB-074",
+                "software": "N47D20T1-F10N47TL"
+            },
+            "price": 0.0,
+            "created_at": "2025-10-22T06:41:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/BMW__TUN__NO_CS__DTC_OFF_P0401.bin",
+            "patch_filename": "BMW__TUN__NO_CS__DTC_OFF_P0401.bin",
+            "patch_id": 34612,
+            "type": 2,
+            "task": "20251110.163522.8279",
+            "info": {
+                "sw_ident": {
+                    "upgrade": "O_7BUJ-00000BAB-074",
+                    "software": "N47D20T1-F10N47TL"
+                },
+                "dtc_removed": [
+                    "P0401"
+                ],
+                "origin_task": "20251109.165218.7501"
+            }
+        },
+        {
+            "id": 77152,
+            "title": "Audi__TUN__DTC_OFF__NO_CS_HGu7xfE.bin",
+            "description": "Solutions applied: TUN, DTC_OFF",
+            "sw_identifier": {
+                "upgrade": "O_7BUJ-00000BAB-074",
+                "software": "N47D20T1-F10N47TL"
+            },
+            "price": 960.0,
+            "created_at": "2025-10-22T05:40:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/Audi__TUN__DTC_OFF__NO_CS_HGu7xfE.bin",
+            "patch_filename": "Audi__TUN__DTC_OFF__NO_CS_HGu7xfE.bin",
+            "patch_id": 34611,
+            "type": 1,
+            "task": "2025118.2351.8531",
+            "info": {
+                "mods": [
+                    "TUN",
+                    "DTC_OFF"
+                ],
+                "sw_ident": {
+                    "upgrade": "O_7BUJ-00000BAB-074",
+                    "software": "N47D20T1-F10N47TL"
+                },
+                "dtc_removed": [
+                    "255D",
+                    "P0401",
+                    "2096"
+                ]
+            }
+        },
+        {
+            "id": 77151,
+            "title": "VW__DPF_OFF__EGR_OFF__NO_CS.bin",
+            "description": "Solutions applied: DPF_OFF, EGR_OFF",
+            "sw_identifier": {
+                "upgrade": "O_7BUJ-00000BAB-074",
+                "software": "N47D20T1-F10N47TL"
+            },
+            "price": 960.0,
+            "created_at": "2025-10-22T04:39:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/VW__DPF_OFF__EGR_OFF__NO_CS.bin",
+            "patch_filename": "VW__DPF_OFF__EGR_OFF__NO_CS.bin",
+            "patch_id": 34610,
+            "type": 1,
+            "task": "20251110.1410.9976",
+            "info": {
+                "mods": [
+                    "DPF_OFF",
+                    "EGR_OFF"
+                ],
+                "sw_ident": {
+                    "upgrade": "O_7BUJ-00000BAB-074",
+                    "software": "N47D20T1-F10N47TL"
+                }
+            }
+        },
+        {
+            "id": 77150,
+            "title": "Add Cashback",
+            "description": "",
+            "sw_identifier": null,
+            "price": 192.0,
+            "created_at": "2025-10-21T04:38:50.000000+03:00",
+            "patch_file": "",
+            "patch_filename": null,
+            "patch_id": null,
+            "type": 4,
+            "task": null,
+            "info": null
+        },
+        {
+            "id": 77149,
+            "title": "Audi__TUN__DTC_OFF__NO_CS.bin",
+            "description": "Solutions applied: TUN, DTC_OFF",
+            "sw_identifier": {
+                "upgrade": "O_7BUJ-00000BAB-074",
+                "software": "N47D20T1-F10N47TL"
+            },
+            "price": 960.0,
+            "created_at": "2025-10-21T03:37:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/Audi__TUN__DTC_OFF__NO_CS.bin",
+            "patch_filename": "Audi__TUN__DTC_OFF__NO_CS.bin",
+            "patch_id": 34608,
+            "type": 1,
+            "task": "2025118.2339.8554",
+            "info": {
+                "mods": [
+                    "TUN",
+                    "DTC_OFF"
+                ],
+                "sw_ident": {
+                    "upgrade": "O_7BUJ-00000BAB-074",
+                    "software": "N47D20T1-F10N47TL"
+                },
+                "dtc_removed": [
+                    "P0402",
+                    "242F"
+                ]
+            }
+        },
+        {
+            "id": 77148,
+            "title": "Mazda__DPF_OFF__EGR_OFF__NO_CS_A16E4HD.bin",
+            "description": "Solutions applied: DPF_OFF, EGR_OFF",
+            "sw_identifier": {
+                "upgrade": "L3M7EF000L3T6061",
+                "version": "SW-L3M7EF000.HEX",
+                "software": "L3M7EF0WZ03"
+            },
+            "price": 960.0,
+            "created_at": "2025-10-21T02:36:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/Mazda__DPF_OFF__EGR_OFF__NO_CS_A16E4HD.bin",
+            "patch_filename": "Mazda__DPF_OFF__EGR_OFF__NO_CS_A16E4HD.bin",
+            "patch_id": 34607,
+            "type": 1,
+            "task": "20251110.1832.3582",
+            "info": {
+                "mods": [
+                    "DPF_OFF",
+                    "EGR_OFF"
+                ],
+                "sw_ident": {
+                    "upgrade": "L3M7EF000L3T6061",
+                    "version": "SW-L3M7EF000.HEX",
+                    "software": "L3M7EF0WZ03"
+                }
+            }
+        },
+        {
+            "id": 77147,
+            "title": "Reduce Cashback",
+            "description": "",
+            "sw_identifier": null,
+            "price": 2880.0,
+            "created_at": "2025-10-20T01:35:50.000000+03:00",
+            "patch_file": "",
+            "patch_filename": null,
+            "patch_id": null,
+            "type": 6,
+            "task": null,
+            "info": null
+        },
+        {
+            "id": 77146,
+            "title": "VW__EGR_OFF__TUN__NO_CS_ut0oI9f.bin",
+            "description": "Solutions applied: EGR_OFF, TUN",
+            "sw_identifier": {
+                "upgrade": "O_7BUJ-00000BAB-074",
+                "software": "N47D20T1-F10N47TL"
+            },
+            "price": 960.0,
+            "created_at": "2025-10-20T00:34:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/VW__EGR_OFF__TUN__NO_CS_ut0oI9f.bin",
+            "patch_filename": "VW__EGR_OFF__TUN__NO_CS_ut0oI9f.bin",
+            "patch_id": 34605,
+            "type": 1,
+            "task": "2025119.1946.2393",
+            "info": {
+                "mods": [
+                    "EGR_OFF",
+                    "TUN"
+                ],
+                "sw_ident": {
+                    "upgrade": "O_7BUJ-00000BAB-074",
+                    "software": "N47D20T1-F10N47TL"
+                }
+            }
+        },
+        {
+            "id": 77145,
+            "title": "Add Cashback",
+            "description": "",
+            "sw_identifier": null,
+            "price": 480.0,
+            "created_at": "2025-10-19T23:33:50.000000+03:00",
+            "patch_file": "",
+            "patch_filename": null,
+            "patch_id": null,
+            "type": 4,
+            "task": null,
+            "info": null
+        },
+        {
+            "id": 77144,
+            "title": "Mazda__TUN__NO_CS__DTC_OFF_P0402.bin",
+            "description": "Origin: 20251109.165218.1736\nDTC removed: P0402",
+            "sw_identifier": {
+                "upgrade": "L3M7EF000L3T6061",
+                "version": "SW-L3M7EF000.HEX",
+                "software": "L3M7EF0WZ03"
+            },
+            "price": 0.0,
+            "created_at": "2025-10-18T22:32:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/Mazda__TUN__NO_CS__DTC_OFF_P0402.bin",
+            "patch_filename": "Mazda__TUN__NO_CS__DTC_OFF_P0402.bin",
+            "patch_id": 34603,
+            "type": 2,
+            "task": "20251110.163522.9173",
+            "info": {
+                "sw_ident": {
+                    "upgrade": "L3M7EF000L3T6061",
+                    "version": "SW-L3M7EF000.HEX",
+                    "software": "L3M7EF0WZ03"
+                },
+                "dtc_removed": [
+                    "P0402"
+                ],
+                "origin_task": "20251109.165218.1736"
+            }
+        },
+        {
+            "id": 77143,
+            "title": "Audi__TUN__DPF_OFF__EGR_OFF__LSU_OFF__VSA_OFF__Stage2__NO_CS.bin",
+            "description": "Solutions applied: TUN, DPF_OFF, EGR_OFF, LSU_OFF, VSA_OFF, Stage2",
+            "sw_identifier": {
+                "upgrade": "O_7BUJ-00000BAB-074",
+                "software": "N47D20T1-F10N47TL"
+            },
+            "price": 2880.0,
+            "created_at": "2025-10-18T21:31:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/Audi__TUN__DPF_OFF__EGR_OFF__LSU_OFF__VSA_OFF__Stage2__NO_CS.bin",
+            "patch_filename": "Audi__TUN__DPF_OFF__EGR_OFF__LSU_OFF__VSA_OFF__Stage2__NO_CS.bin",
+            "patch_id": 34602,
+            "type": 1,
+            "task": "20251110.2319.6418",
+            "info": {
+                "mods": [
+                    "TUN",
+                    "DPF_OFF",
+                    "EGR_OFF",
+                    "LSU_OFF",
+                    "VSA_OFF",
+                    "Stage2"
+                ],
+                "sw_ident": {
+                    "upgrade": "O_7BUJ-00000BAB-074",
+                    "software": "N47D20T1-F10N47TL"
+                }
+            }
+        },
+        {
+            "id": 77142,
+            "title": "BMW__DPF_OFF__EGR_OFF__NO_CS.bin",
+            "description": "Solutions applied: DPF_OFF, EGR_OFF",
+            "sw_identifier": {
+                "upgrade": "O_7BUJ-00000BAB-074",
+                "software": "N47D20T1-F10N47TL"
+            },
+            "price": 960.0,
+            "created_at": "2025-10-18T20:30:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/BMW__DPF_OFF__EGR_OFF__NO_CS.bin",
+            "patch_filename": "BMW__DPF_OFF__EGR_OFF__NO_CS.bin",
+            "patch_id": 34601,
+            "type": 1,
+            "task": "20251110.2015.4625",
+            "info": {
+                "mods": [
+                    "DPF_OFF",
+                    "EGR_OFF"
+                ],
+                "sw_ident": {
+                    "upgrade": "O_7BUJ-00000BAB-074",
+                    "software": "N47D20T1-F10N47TL"
+                }
+            }
+        },
+        {
+            "id": 77141,
+            "title": "BMW__TUN__NO_CS__DTC_OFF_P0420.bin",
+            "description": "Origin: 20251109.165218.2570\nDTC removed: P0420",
+            "sw_identifier": {
+                "upgrade": "O_7BUJ-00000BAB-074",
+                "software": "N47D20T1-F10N47TL"
+            },
+            "price": 0.0,
+            "created_at": "2025-10-17T19:29:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/BMW__TUN__NO_CS__DTC_OFF_P0420.bin",
+            "patch_filename": "BMW__TUN__NO_CS__DTC_OFF_P0420.bin",
+            "patch_id": 34600,
+            "type": 2,
+            "task": "20251110.163522.6435",
+            "info": {
+                "sw_ident": {
+                    "upgrade": "O_7BUJ-00000BAB-074",
+                    "software": "N47D20T1-F10N47TL"
+                },
+                "dtc_removed": [
+                    "P0420"
+                ],
+                "origin_task": "20251109.165218.2570"
+            }
+        },
+        {
+            "id": 77140,
+            "title": "Add Cashback",
+            "description": "",
+            "sw_identifier": null,
+            "price": 480.0,
+            "created_at": "2025-10-17T18:28:50.000000+03:00",
+            "patch_file": "",
+            "patch_filename": null,
+            "patch_id": null,
+            "type": 4,
+            "task": null,
+            "info": null
+        },
+        {
+            "id": 77139,
+            "title": "Audi__DTC_OFF__NO_CS.bin",
+            "description": "Solutions applied: DTC_OFF",
+            "sw_identifier": {
+                "upgrade": "O_7BUJ-00000BAB-074",
+                "software": "N47D20T1-F10N47TL"
+            },
+            "price": 480.0,
+            "created_at": "2025-10-17T17:27:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/Audi__DTC_OFF__NO_CS.bin",
+            "patch_filename": "Audi__DTC_OFF__NO_CS.bin",
+            "patch_id": 34598,
+            "type": 1,
+            "task": "2025119.1650.9133",
+            "info": {
+                "mods": [
+                    "DTC_OFF"
+                ],
+                "sw_ident": {
+                    "upgrade": "O_7BUJ-00000BAB-074",
+                    "software": "N47D20T1-F10N47TL"
+                },
+                "dtc_removed": [
+                    "2096"
+                ]
+            }
+        },
+        {
+            "id": 77138,
+            "title": "Mazda__TUN__NO_CS__DTC_OFF_242F_ILNibJg.bin",
+            "description": "Origin: 20251109.165218.3655\nDTC removed: 242F",
+            "sw_identifier": {
+                "upgrade": "L3M7EF000L3T6061",
+                "version": "SW-L3M7EF000.HEX",
+                "software": "L3M7EF0WZ03"
+            },
+            "price": 0.0,
+            "created_at": "2025-10-17T16:26:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/Mazda__TUN__NO_CS__DTC_OFF_242F_ILNibJg.bin",
+            "patch_filename": "Mazda__TUN__NO_CS__DTC_OFF_242F_ILNibJg.bin",
+            "patch_id": 34597,
+            "type": 2,
+            "task": "20251110.163522.3568",
+            "info": {
+                "sw_ident": {
+                    "upgrade": "L3M7EF000L3T6061",
+                    "version": "SW-L3M7EF000.HEX",
+                    "software": "L3M7EF0WZ03"
+                },
+                "dtc_removed": [
+                    "242F"
+                ],
+                "origin_task": "20251109.165218.3655"
+            }
+        },
+        {
+            "id": 77137,
+            "title": "Audi__EGR_OFF__TUN__NO_CS_XnZjUBe.bin",
+            "description": "Solutions applied: EGR_OFF, TUN",
+            "sw_identifier": {
+                "upgrade": "O_7BUJ-00000BAB-074",
+                "software": "N47D20T1-F10N47TL"
+            },
+            "price": 960.0,
+            "created_at": "2025-10-17T15:25:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/Audi__EGR_OFF__TUN__NO_CS_XnZjUBe.bin",
+            "patch_filename": "Audi__EGR_OFF__TUN__NO_CS_XnZjUBe.bin",
+            "patch_id": 34596,
+            "type": 1,
+            "task": "2025119.1047.4852",
+            "info": {
+                "mods": [
+                    "EGR_OFF",
+                    "TUN"
+                ],
+                "sw_ident": {
+                    "upgrade": "O_7BUJ-00000BAB-074",
+                    "software": "N47D20T1-F10N47TL"
+                }
+            }
+        },
+        {
+            "id": 77136,
+            "title": "VW__TUN__DPF_OFF__EGR_OFF__NO_CS_COufPlI.bin",
+            "description": "Solutions applied: TUN, DPF_OFF, EGR_OFF",
+            "sw_identifier": {
+                "upgrade": "O_7BUJ-00000BAB-074",
+                "software": "N47D20T1-F10N47TL"
+            },
+            "price": 1440.0,
+            "created_at": "2025-10-17T14:24:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/VW__TUN__DPF_OFF__EGR_OFF__NO_CS_COufPlI.bin",
+            "patch_filename": "VW__TUN__DPF_OFF__EGR_OFF__NO_CS_COufPlI.bin",
+            "patch_id": 34595,
+            "type": 1,
+            "task": "2025119.1527.1462",
+            "info": {
+                "mods": [
+                    "TUN",
+                    "DPF_OFF",
+                    "EGR_OFF"
+                ],
+                "sw_ident": {
+                    "upgrade": "O_7BUJ-00000BAB-074",
+                    "software": "N47D20T1-F10N47TL"
+                }
+            }
+        },
+        {
+            "id": 77135,
+            "title": "Add Cashback",
+            "description": "",
+            "sw_identifier": null,
+            "price": 192.0,
+            "created_at": "2025-10-16T13:23:50.000000+03:00",
+            "patch_file": "",
+            "patch_filename": null,
+            "patch_id": null,
+            "type": 4,
+            "task": null,
+            "info": null
+        },
+        {
+            "id": 77134,
+            "title": "Mazda__TUN__DPF_OFF__EGR_OFF__LSU_OFF__VSA_OFF__Stage2__NO_CS_SyjSfKB.bin",
+            "description": "Solutions applied: TUN, DPF_OFF, EGR_OFF, LSU_OFF, VSA_OFF, Stage2",
+            "sw_identifier": {
+                "upgrade": "L3M7EF000L3T6061",
+                "version": "SW-L3M7EF000.HEX",
+                "software": "L3M7EF0WZ03"
+            },
+            "price": 2880.0,
+            "created_at": "2025-10-16T12:22:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/Mazda__TUN__DPF_OFF__EGR_OFF__LSU_OFF__VSA_OFF__Stage2__NO_CS_SyjSfKB.bin",
+            "patch_filename": "Mazda__TUN__DPF_OFF__EGR_OFF__LSU_OFF__VSA_OFF__Stage2__NO_CS_SyjSfKB.bin",
+            "patch_id": 34593,
+            "type": 1,
+            "task": "2025118.1048.8998",
+            "info": {
+                "mods": [
+                    "TUN",
+                    "DPF_OFF",
+                    "EGR_OFF",
+                    "LSU_OFF",
+                    "VSA_OFF",
+                    "Stage2"
+                ],
+                "sw_ident": {
+                    "upgrade": "L3M7EF000L3T6061",
+                    "version": "SW-L3M7EF000.HEX",
+                    "software": "L3M7EF0WZ03"
+                }
+            }
+        },
+        {
+            "id": 77133,
+            "title": "Reduce Cashback",
+            "description": "",
+            "sw_identifier": null,
+            "price": 1920.0,
+            "created_at": "2025-10-16T11:21:50.000000+03:00",
+            "patch_file": "",
+            "patch_filename": null,
+            "patch_id": null,
+            "type": 6,
+            "task": null,
+            "info": null
+        },
+        {
+            "id": 77132,
+            "title": "BMW__TUN__NO_CS__DTC_OFF_P0401_9gsaH2z.bin",
+            "description": "Origin: 20251109.165218.9271\nDTC removed: P0401",
+            "sw_identifier": {
+                "upgrade": "O_7BUJ-00000BAB-074",
+                "software": "N47D20T1-F10N47TL"
+            },
+            "price": 0.0,
+            "created_at": "2025-10-15T10:20:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/BMW__TUN__NO_CS__DTC_OFF_P0401_9gsaH2z.bin",
+            "patch_filename": "BMW__TUN__NO_CS__DTC_OFF_P0401_9gsaH2z.bin",
+            "patch_id": 34591,
+            "type": 2,
+            "task": "20251110.163522.4248",
+            "info": {
+                "sw_ident": {
+                    "upgrade": "O_7BUJ-00000BAB-074",
+                    "software": "N47D20T1-F10N47TL"
+                },
+                "dtc_removed": [
+                    "P0401"
+                ],
+                "origin_task": "20251109.165218.9271"
+            }
+        },
+        {
+            "id": 77131,
+            "title": "BMW__DTC_OFF__NO_CS_RopnzmX.bin",
+            "description": "Solutions applied: DTC_OFF",
+            "sw_identifier": {
+                "upgrade": "O_7BUJ-00000BAB-074",
+                "software": "N47D20T1-F10N47TL"
+            },
+            "price": 480.0,
+            "created_at": "2025-10-15T09:19:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/BMW__DTC_OFF__NO_CS_RopnzmX.bin",
+            "patch_filename": "BMW__DTC_OFF__NO_CS_RopnzmX.bin",
+            "patch_id": 34590,
+            "type": 1,
+            "task": "2025118.2134.2079",
+            "info": {
+                "mods": [
+                    "DTC_OFF"
+                ],
+                "sw_ident": {
+                    "upgrade": "O_7BUJ-00000BAB-074",
+                    "software": "N47D20T1-F10N47TL"
+                },
+                "dtc_removed": [
+                    "242F",
+                    "2096",
+                    "245C"
+                ]
+            }
+        },
+        {
+            "id": 77130,
+            "title": "Add Cashback",
+            "description": "",
+            "sw_identifier": null,
+            "price": 192.0,
+            "created_at": "2025-10-15T08:18:50.000000+03:00",
+            "patch_file": "",
+            "patch_filename": null,
+            "patch_id": null,
+            "type": 4,
+            "task": null,
+            "info": null
+        },
+        {
+            "id": 77129,
+            "title": "BMW__TUN__NO_CS__DTC_OFF_P0401.bin",
+            "description": "Origin: 20251109.165218.6454\nDTC removed: P0401",
+            "sw_identifier": {
+                "upgrade": "O_7BUJ-00000BAB-074",
+                "software": "N47D20T1-F10N47TL"
+            },
+            "price": 0.0,
+            "created_at": "2025-10-14T07:17:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/BMW__TUN__NO_CS__DTC_OFF_P0401.bin",
+            "patch_filename": "BMW__TUN__NO_CS__DTC_OFF_P0401.bin",
+            "patch_id": 34588,
+            "type": 2,
+            "task": "20251110.163522.4460",
+            "info": {
+                "sw_ident": {
+                    "upgrade": "O_7BUJ-00000BAB-074",
+                    "software": "N47D20T1-F10N47TL"
+                },
+                "dtc_removed": [
+                    "P0401"
+                ],
+                "origin_task": "20251109.165218.6454"
+            }
+        },
+        {
+            "id": 77128,
+            "title": "VW__EGR_OFF__TUN__NO_CS.bin",
+            "description": "Solutions applied: EGR_OFF, TUN",
+            "sw_identifier": {
+                "upgrade": "O_7BUJ-00000BAB-074",
+                "software": "N47D20T1-F10N47TL"
+            },
+            "price": 960.0,
+            "created_at": "2025-10-14T06:16:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/VW__EGR_OFF__TUN__NO_CS.bin",
+            "patch_filename": "VW__EGR_OFF__TUN__NO_CS.bin",
+            "patch_id": 34587,
+            "type": 1,
+            "task": "2025119.1534.8311",
+            "info": {
+                "mods": [
+                    "EGR_OFF",
+                    "TUN"
+                ],
+                "sw_ident": {
+                    "upgrade": "O_7BUJ-00000BAB-074",
+                    "software": "N47D20T1-F10N47TL"
+                }
+            }
+        },
+        {
+            "id": 77127,
+            "title": "Audi__TUN__DPF_OFF__EGR_OFF__LSU_OFF__VSA_OFF__Stage2__NO_CS_KrNKr3B.bin",
+            "description": "Solutions applied: TUN, DPF_OFF, EGR_OFF, LSU_OFF, VSA_OFF, Stage2",
+            "sw_identifier": {
+                "upgrade": "O_7BUJ-00000BAB-074",
+                "software": "N47D20T1-F10N47TL"
+            },
+            "price": 2880.0,
+            "created_at": "2025-10-14T05:15:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/Audi__TUN__DPF_OFF__EGR_OFF__LSU_OFF__VSA_OFF__Stage2__NO_CS_KrNKr3B.bin",
+            "patch_filename": "Audi__TUN__DPF_OFF__EGR_OFF__LSU_OFF__VSA_OFF__Stage2__NO_CS_KrNKr3B.bin",
+            "patch_id": 34586,
+            "type": 1,
+            "task": "2025118.1159.2340",
+            "info": {
+                "mods": [
+                    "TUN",
+                    "DPF_OFF",
+                    "EGR_OFF",
+                    "LSU_OFF",
+                    "VSA_OFF",
+                    "Stage2"
+                ],
+                "sw_ident": {
+                    "upgrade": "O_7BUJ-00000BAB-074",
+                    "software": "N47D20T1-F10N47TL"
+                }
+            }
+        },
+        {
+            "id": 77126,
+            "title": "Reduce Cashback",
+            "description": "",
+            "sw_identifier": null,
+            "price": 1920.0,
+            "created_at": "2025-10-13T04:14:50.000000+03:00",
+            "patch_file": "",
+            "patch_filename": null,
+            "patch_id": null,
+            "type": 6,
+            "task": null,
+            "info": null
+        },
+        {
+            "id": 77125,
+            "title": "Add Cashback",
+            "description": "",
+            "sw_identifier": null,
+            "price": 288.0,
+            "created_at": "2025-10-13T03:13:50.000000+03:00",
+            "patch_file": "",
+            "patch_filename": null,
+            "patch_id": null,
+            "type": 4,
+            "task": null,
+            "info": null
+        },
+        {
+            "id": 77124,
+            "title": "VW__TUN__DPF_OFF__EGR_OFF__NO_CS.bin",
+            "description": "Solutions applied: TUN, DPF_OFF, EGR_OFF",
+            "sw_identifier": {
+                "upgrade": "O_7BUJ-00000BAB-074",
+                "software": "N47D20T1-F10N47TL"
+            },
+            "price": 1440.0,
+            "created_at": "2025-10-13T02:12:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/VW__TUN__DPF_OFF__EGR_OFF__NO_CS.bin",
+            "patch_filename": "VW__TUN__DPF_OFF__EGR_OFF__NO_CS.bin",
+            "patch_id": 34583,
+            "type": 1,
+            "task": "2025119.2024.8843",
+            "info": {
+                "mods": [
+                    "TUN",
+                    "DPF_OFF",
+                    "EGR_OFF"
+                ],
+                "sw_ident": {
+                    "upgrade": "O_7BUJ-00000BAB-074",
+                    "software": "N47D20T1-F10N47TL"
+                }
+            }
+        },
+        {
+            "id": 77123,
+            "title": "BMW__TUN__NO_CS__DTC_OFF_255D_Ge9bK0O.bin",
+            "description": "Origin: 20251109.165218.6638\nDTC removed: 255D",
+            "sw_identifier": {
+                "upgrade": "O_7BUJ-00000BAB-074",
+                "software": "N47D20T1-F10N47TL"
+            },
+            "price": 0.0,
+            "created_at": "2025-10-12T01:11:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/BMW__TUN__NO_CS__DTC_OFF_255D_Ge9bK0O.bin",
+            "patch_filename": "BMW__TUN__NO_CS__DTC_OFF_255D_Ge9bK0O.bin",
+            "patch_id": 34582,
+            "type": 2,
+            "task": "20251110.163522.8350",
+            "info": {
+                "sw_ident": {
+                    "upgrade": "O_7BUJ-00000BAB-074",
+                    "software": "N47D20T1-F10N47TL"
+                },
+                "dtc_removed": [
+                    "255D"
+                ],
+                "origin_task": "20251109.165218.6638"
+            }
+        },
+        {
+            "id": 77122,
+            "title": "VW__TUN__DTC_OFF__NO_CS.bin",
+            "description": "Solutions applied: TUN, DTC_OFF",
+            "sw_identifier": {
+                "upgrade": "O_7BUJ-00000BAB-074",
+                "software": "N47D20T1-F10N47TL"
+            },
+            "price": 960.0,
+            "created_at": "2025-10-12T00:10:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/VW__TUN__DTC_OFF__NO_CS.bin",
+            "patch_filename": "VW__TUN__DTC_OFF__NO_CS.bin",
+            "patch_id": 34581,
+            "type": 1,
+            "task": "20251110.1933.7901",
+            "info": {
+                "mods": [
+                    "TUN",
+                    "DTC_OFF"
+                ],
+                "sw_ident": {
+                    "upgrade": "O_7BUJ-00000BAB-074",
+                    "software": "N47D20T1-F10N47TL"
+                },
+                "dtc_removed": [
+                    "2096"
+                ]
+            }
+        },
+        {
+            "id": 77121,
+            "title": "Audi__TUN__DTC_OFF__NO_CS_vDc3Dsv.bin",
+            "description": "Solutions applied: TUN, DTC_OFF",
+            "sw_identifier": {
+                "upgrade": "O_7BUJ-00000BAB-074",
+                "software": "N47D20T1-F10N47TL"
+            },
+            "price": 960.0,
+            "created_at": "2025-10-11T23:09:50.000000+03:00",
+            "patch_file": "https://ts.tun2.ru/files/037ef309356e462d961135e61c914f3d/Audi__TUN__DTC_OFF__NO_CS_vDc3Dsv.bin",
+            "patch_filename": "Audi__TUN__DTC_OFF__NO_CS_vDc3Dsv.bin",
+            "patch_id": 34580,
+            "type": 1,
+            "task": "20251110.2356.3898",
+            "info": {
+                "mods": [
+                    "TUN",
+                    "DTC_OFF"
+                ],
+                "sw_ident": {
+                    "upgrade": "O_7BUJ-00000BAB-074",
+                    "software": "N47D20T1-F10N47TL"
+                },
+                "dtc_removed": [
+                    "2096"
+                ]
+            }
+        }
+    ]
+}

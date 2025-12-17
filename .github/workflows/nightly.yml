@@ -1,0 +1,196 @@
+name: TunService Nightly
+run-name: Nightly validation
+
+on:
+  schedule:
+    - cron: "0 22 * * 1-4"  # Mon-Thu at 01:00 MSK (working days, excluding Friday)
+
+jobs:
+  nightly:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        python-version: ["3.12"]
+        device: [desktop, mobile, tablet]
+
+    env:
+      HEADLESS: true
+      CI: true
+      TEST_TYPE: validation
+      BROWSER: chromium
+      DEVICE_INPUT: ${{ matrix.device }}
+
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+
+    - name: 🔎 Write run parameters
+      run: |
+        mkdir -p reports
+        {
+          echo "test_type=$TEST_TYPE"
+          echo "browser=$BROWSER"
+          echo "device=$DEVICE_INPUT"
+        } > reports/run-parameters.txt
+
+    - name: 🧾 Run parameters summary
+      run: |
+        {
+          echo "### Run parameters"
+          echo ""
+          echo "- Test type: \`${TEST_TYPE}\`"
+          echo "- Browser: \`${BROWSER}\`"
+          echo "- Device: \`${DEVICE_INPUT}\`"
+        } >> "$GITHUB_STEP_SUMMARY"
+
+    - name: 🐍 Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ matrix.python-version }}
+        cache: "pip"
+
+    - name: 🔧 Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: 🎭 Install Playwright Browsers
+      run: |
+        playwright install --with-deps "$BROWSER"
+
+    - name: 🧪 Run Tests
+      id: run_tests
+      continue-on-error: true
+      env:
+        TEST_TYPE: ${{ env.TEST_TYPE }}
+        BROWSER: ${{ env.BROWSER }}
+        DEVICE_INPUT: ${{ env.DEVICE_INPUT }}
+      run: |
+        # DEVICE controls snapshot suffixing; keep empty if not needed
+        export DEVICE="$DEVICE_INPUT"
+        echo "📱 Device: ${DEVICE:-none}"
+
+        mkdir -p reports
+        START_TS=$(date +%s)
+        echo "$START_TS" > reports/test-start-ts.txt
+
+        pytest tests/ -v --browser "$BROWSER" --tb=short -m validation --ctrf=reports/ctrf-report.json
+
+    - name: 🧾 Enrich CTRF with run parameters
+      if: always()
+      env:
+        TEST_TYPE: ${{ env.TEST_TYPE }}
+        BROWSER: ${{ env.BROWSER }}
+        DEVICE_INPUT: ${{ env.DEVICE_INPUT }}
+      run: |
+        if ! command -v jq >/dev/null 2>&1; then
+          sudo apt-get update
+          sudo apt-get install -y jq
+        fi
+        if [ -f reports/ctrf-report.json ]; then
+          jq --arg tt "$TEST_TYPE" --arg br "$BROWSER" --arg dv "$DEVICE_INPUT" \
+            '.results.runParameters = {test_type:$tt, browser:$br, device:$dv}' \
+            reports/ctrf-report.json > reports/ctrf-report.tmp && mv reports/ctrf-report.tmp reports/ctrf-report.json
+        else
+          echo "No CTRF report found to enrich"
+        fi
+
+    - name: 📝 Upload Test Reports
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: test-reports-${{ matrix.device }}-${{ matrix.python-version }}
+        path: |
+          reports/junit.xml
+          reports/pytest.log
+          reports/report.html
+          reports/ctrf-report.json
+          reports/run-parameters.txt
+        retention-days: 30
+
+    - name: 📊 Publish Test Results (CTRF)
+      uses: ctrf-io/github-test-reporter@v1
+      if: always()
+      with:
+        report-path: "./reports/ctrf-report.json"
+        github-report: true
+        summary-report: true
+        failed-report: true
+        test-list-report: true
+        pull-request: false
+        update-comment: false
+        comment-tag: "nightly-${{ matrix.device }}-${{ matrix.python-version }}"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: 📸 Upload Screenshots
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: screenshots-${{ matrix.device }}-${{ matrix.python-version }}
+        path: |
+          reports/failed_screenshots/
+          snapshot_failures/
+        retention-days: 30
+
+    - name: 🎬 Upload Playwright Traces
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: playwright-traces-${{ matrix.device }}-${{ matrix.python-version }}
+        path: |
+          reports/trace/
+          trace.zip
+          trace-*.zip
+        retention-days: 7
+
+    - name: 📝 Extract Commit Info
+      if: always()
+      id: commit_info
+      run: |
+        COMMIT_MESSAGE=$(git log -1 --pretty=format:%s)
+        COMMIT_AUTHOR=$(git log -1 --pretty=format:%an)
+
+        echo "COMMIT_MESSAGE<<COMMIT_EOF" >> $GITHUB_ENV
+        echo "$COMMIT_MESSAGE" >> $GITHUB_ENV
+        echo "COMMIT_EOF" >> $GITHUB_ENV
+
+        echo "COMMIT_AUTHOR=$COMMIT_AUTHOR" >> $GITHUB_ENV
+
+    - name: 📱 Generate Telegram Report
+      if: always()
+      id: telegram_report
+      env:
+        TEST_TYPE: ${{ env.TEST_TYPE }}
+        BROWSER: ${{ env.BROWSER }}
+        DEVICE: ${{ env.DEVICE_INPUT }}
+        GITHUB_EVENT_NAME: ${{ github.event_name }}
+        GITHUB_RUN_NUMBER: ${{ github.run_number }}
+        GITHUB_REF_NAME: ${{ github.ref_name }}
+        GITHUB_SHA: ${{ github.sha }}
+        GITHUB_SERVER_URL: ${{ github.server_url }}
+        GITHUB_REPOSITORY: ${{ github.repository }}
+        GITHUB_RUN_ID: ${{ github.run_id }}
+        COMMIT_MESSAGE: ${{ env.COMMIT_MESSAGE }}
+        COMMIT_AUTHOR: ${{ env.COMMIT_AUTHOR }}
+      run: |
+        if [ ! -f reports/ctrf-report.json ]; then
+          echo "No CTRF report found, skipping Telegram notification"
+          echo "skip_telegram=true" >> $GITHUB_OUTPUT
+          exit 0
+        fi
+
+        # Run Python script to generate enhanced report
+        python3 .github/generate_telegram_report.py
+
+    - name: 📬 Send Telegram Notification
+      if: always() && steps.telegram_report.outputs.message != ''
+      uses: appleboy/telegram-action@master
+      with:
+        to: ${{ secrets.TELEGRAM_CHAT_ID }}
+        token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        format: html
+        disable_web_page_preview: false
+        message: ${{ steps.telegram_report.outputs.message }}

@@ -1,0 +1,32 @@
+.idea/
+.cursor/
+reports/
+reports/
+
+# Python
+.DS_Store
+__pycache__
+*.py[cod]
+*.pyc
+.venv/
+venv/
+env/
+ENV/
+
+.benchmarks/
+.pytest_cache/
+.vscode/
+reports/broken_pages/
+# Markdown files (except documentation)
+*.md
+!docs/*.md
+tests/pixels-tests/pixel_pixel_tests_plan.md
+
+# Trace files in root directory (should be in reports/trace/)
+trace-*.zip
+trace.zip
+
+# Visual regression testing
+snapshot_tests_failures/
+snapshots_old/
+# Note: tests/pixel/snapshots is a symlink to references/pixel (Golden Set)
