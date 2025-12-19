@@ -198,14 +198,14 @@ def generate_telegram_message() -> str:
     browser = get_env('BROWSER', 'chromium')
     device = get_env('DEVICE', 'desktop')
 
-    # Проверяем, есть ли данные о внешнем репозитории (remote trigger)
+    # Check if there is data about external repository (remote trigger)
     source_repo = get_env('SOURCE_REPO', '')
     source_commit = get_env('SOURCE_COMMIT', '')
     source_branch = get_env('SOURCE_BRANCH', '')
     pr_number = get_env('PR_NUMBER', '')
     pr_url = get_env('PR_URL', '')
 
-    # Используем данные из внешнего репозитория, если они есть
+    # Use data from external repository if available
     if source_repo and source_commit and source_repo != 'unknown':
         commit_sha_full = source_commit
         branch = source_branch or branch
@@ -229,7 +229,7 @@ def generate_telegram_message() -> str:
     repo_link = f"{repo_url}/{repo_name}"
     actions_url = f"{repo_url}/{repo_name}/actions"
 
-    # Формируем ссылку на коммит (из внешнего репозитория, если есть)
+    # Build commit link (from external repository if available)
     if source_repo and source_commit and source_repo != 'unknown':
         commit_url = f"{repo_url}/{source_repo}/commit/{commit_sha_full}"
     else:

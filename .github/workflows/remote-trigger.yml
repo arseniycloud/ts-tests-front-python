@@ -3,7 +3,7 @@ run-name: |
   Remote: ${{ github.event.client_payload.test_type || 'regression' }} (${{ github.event.client_payload.browser || 'chromium' }})
 
 on:
-  # Триггер из другого репозитория (например, при коммите в frontend)
+  # Trigger from another repository (e.g., on commit to frontend)
   repository_dispatch:
     types: [run-regression-tests]
 
@@ -16,16 +16,16 @@ jobs:
       - name: Determine devices to test
         id: set-matrix
         run: |
-          # Получаем devices из payload (может быть строка "desktop,mobile" или JSON массив)
+          # Get devices from payload (can be a string "desktop,mobile" or JSON array)
           DEVICES_INPUT="${{ github.event.client_payload.devices || 'desktop' }}"
 
-          # Проверяем, является ли это JSON массивом
+          # Check if it's a JSON array
           if echo "$DEVICES_INPUT" | jq -e . >/dev/null 2>&1; then
-            # Это валидный JSON, используем как есть
+            # Valid JSON, use as is
             devices="$DEVICES_INPUT"
           else
-            # Это строка, конвертируем в JSON массив
-            # Разделяем по запятой и создаем JSON массив
+            # It's a string, convert to JSON array
+            # Split by comma and create JSON array
             devices="["
             first=true
             IFS=',' read -ra DEVICE_ARRAY <<< "$DEVICES_INPUT"
@@ -41,7 +41,7 @@ jobs:
             devices="$devices]"
           fi
 
-          # Создаем matrix
+          # Create matrix
           matrix="{\"python-version\":[\"3.12\"],\"device\":$devices}"
 
           echo "matrix=$matrix" >> $GITHUB_OUTPUT
@@ -264,11 +264,11 @@ jobs:
         SOURCE_COMMIT: ${{ env.SOURCE_COMMIT }}
         SOURCE_REPO_TOKEN: ${{ secrets.SOURCE_REPO_TOKEN }}
       run: |
-        # Если есть данные о внешнем репозитории, получаем информацию оттуда
+        # If there is data about external repository, fetch information from there
         if [ -n "$SOURCE_REPO" ] && [ -n "$SOURCE_COMMIT" ] && [ "$SOURCE_REPO" != "unknown" ]; then
           echo "Fetching commit info from source repository: $SOURCE_REPO"
 
-          # Получаем информацию о коммите из внешнего репозитория через GitHub API
+          # Get commit information from external repository via GitHub API
           if [ -n "$SOURCE_REPO_TOKEN" ]; then
             if ! command -v jq >/dev/null 2>&1; then
               sudo apt-get update && sudo apt-get install -y jq
@@ -279,7 +279,7 @@ jobs:
               -H "X-GitHub-Api-Version: 2022-11-28" \
               "https://api.github.com/repos/$SOURCE_REPO/commits/$SOURCE_COMMIT")
 
-            # Проверяем, что API вернул валидные данные (не ошибку)
+            # Check that API returned valid data (not an error)
             if echo "$COMMIT_INFO" | jq -e '.commit.message' >/dev/null 2>&1; then
               COMMIT_MESSAGE=$(echo "$COMMIT_INFO" | jq -r '.commit.message // ""' | head -1)
               COMMIT_AUTHOR=$(echo "$COMMIT_INFO" | jq -r '.commit.author.name // .author.login // ""')
@@ -289,12 +289,12 @@ jobs:
               COMMIT_AUTHOR=$(git log -1 --pretty=format:%an)
             fi
           else
-            # Fallback: используем локальный коммит
+            # Fallback: use local commit
             COMMIT_MESSAGE=$(git log -1 --pretty=format:%s)
             COMMIT_AUTHOR=$(git log -1 --pretty=format:%an)
           fi
         else
-          # Используем локальный коммит
+          # Use local commit
           COMMIT_MESSAGE=$(git log -1 --pretty=format:%s)
           COMMIT_AUTHOR=$(git log -1 --pretty=format:%an)
         fi
